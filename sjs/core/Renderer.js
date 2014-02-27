@@ -13,9 +13,23 @@
 
 	var p = Renderer.prototype;
 
+	p.setBlock = function (val) {
+		this.pause();
+		this.restart();
+		this.block = val;
+		this.clearDisplay();
+	};
+
+	p.setElement = function (val) {
+		this.clearDisplay();
+		this.element = val;
+	};
+
 	p.play = function () {
-		this.slowStartCount = 5;
-		this.display();
+		if (this.block) {
+			this.slowStartCount = 5;
+			this.display();
+		}
 	};
 
 	p.next = function() {
@@ -34,17 +48,17 @@
 			}
 			this.timer = setTimeout($.proxy(this.next, this),time);
 		} else {
-			showWord();
+			this.clearDisplay();
 		}
 	};
 
 	p.showWord = function () {
-		if (this.currentWord) {
-			this.element.html(this.currentWord.val);
-			this.element.removeClass('index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
-		} else {
-			this.element.removeClass('index1 index2 index3 index4 index5').html("");
-		}
+		this.element.html(this.currentWord.val);
+		this.element.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+	};
+
+	p.clearDisplay = function () {
+		if (this.element) this.element.removeClass('index0 index1 index2 index3 index4 index5').html("");
 	};
 
 	p.pause = function () {
@@ -52,7 +66,7 @@
 	};
 
 	p.restart = function () {
-		this.block.restart();
+		if (this.block) this.block.restart();
 	};
 
 	p.setWPM = function ( val ) {

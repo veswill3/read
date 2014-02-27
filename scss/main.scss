@@ -45,3 +45,17 @@
 		margin-left: -66px;
 	}
 }
+
+.input {
+	position: absolute;
+	top: 150px;
+	left: 10px;
+	width: 500px;
+
+	textarea {
+		font-family: 'Droid Serif', serif;
+		font-size: 12px;
+		width: 450px;
+		height: 200px;
+	}
+}

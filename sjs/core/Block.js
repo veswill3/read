@@ -37,7 +37,7 @@
 	};
 
 	p.next = function () {
-		this.index = Math.min( this.index + 1, this.words.length - 1 );
+		this.index = Math.min( this.index + 1, this.words.length );
 	};
 
 	p.prev = function () {

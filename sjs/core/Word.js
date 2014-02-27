@@ -20,7 +20,8 @@
 
 	p.process = function () {
 
-		this.length = this.val.match(textRegex).length;
+		var match = this.val.match(textRegex);
+		this.length = (match) ? match.length : 0;
 
 		var lastChar = this.val.substr(-1);
 		var firstChar = this.val[0];
