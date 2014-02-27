@@ -1,3 +1,3 @@
 ## TODO ##
-Add unit tests
+Unit test Word class
 

@@ -5,13 +5,14 @@
 Speed reading via RSVP
 
 ## TODO ##
-Add unit tests
+Unit test Word class
 
 ## COMMIT LOG ##
 
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * renaming index (`James Tomasino`)
  * adding console.log (`James Tomasino`)
  * removing test code (`James Tomasino`)
  * fixing linting errors (`James Tomasino`)
