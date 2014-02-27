@@ -1,3 +1,3 @@
 ## TODO ##
-Unit test Word class
+- Unit test Word class
 

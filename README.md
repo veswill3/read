@@ -5,12 +5,13 @@
 Speed reading via RSVP
 
 ## TODO ##
-Unit test Word class
+- Unit test Word class
 
 ## COMMIT LOG ##
 
 ####2014-02-27####
 
+ * __bound pause/play to element__ (`James Tomasino`)
  * __text pulls from textarea on page on blur__ (`James Tomasino`)
 
 ####2014-02-26####

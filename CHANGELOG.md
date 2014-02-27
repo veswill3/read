@@ -2,6 +2,7 @@
 
 ####2014-02-27####
 
+ * __bound pause/play to element__ (`James Tomasino`)
  * __text pulls from textarea on page on blur__ (`James Tomasino`)
 
 ####2014-02-26####
