@@ -2,6 +2,7 @@
 
 ####2014-02-27####
 
+ * __updated styles__ (`James Tomasino`)
  * __ignoring md files in gh-pages__ (`James Tomasino`)
  * __tap when completed restarts__ (`James Tomasino`)
  * __styled .read block for portability__ (`James Tomasino`)
