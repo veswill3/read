@@ -1,7 +1,7 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read"><div class="read_position"><div class="indicator"></div><div class="display"></div></div></div>';
+	var ele = '<div class="read"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
 
 	var Renderer = function ( block, element ) {
 
@@ -9,6 +9,7 @@
 		this.parentElement = null;
 		this.element = null;
 		this.displayElement = null;
+		this.speedElement = null;
 		this.currentWord = null;
 		this.delay = 0;
 		this.timer = null;
@@ -58,7 +59,11 @@
 		this.parentElement.prepend(this.element);
 		this.element.slideDown();
 		this.displayElement = this.element.find('.display');
-		this.element.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+		this.speedElement = this.element.find('.speed');
+		this.displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+		this.speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
+		this.speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
+
 	};
 
 	p.playPauseToggle = function () {
@@ -108,6 +113,10 @@
 			this.displayElement.html(this.currentWord.val);
 			this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
 		}
+
+		if (this.speedElement && !this.speedElement.is(":focus")) {
+			this.speedElement.val(this._wpm);
+		}
 	};
 
 	p.clearDisplay = function () {
@@ -124,7 +133,15 @@
 	};
 
 	p.setWPM = function ( val ) {
+		this._wpm = val;
 		this.delay = 1/(val/60)*1000;
+	};
+
+	p.updateWPMFromUI = function () {
+		var newWPM = this.speedElement.val();
+		newWPM = newWPM.match(/[\d]+/g);
+		newWPM = parseInt(newWPM, 10);
+		this.setWPM(newWPM);
 	};
 
 	window.Renderer = Renderer;
