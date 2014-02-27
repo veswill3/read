@@ -2,6 +2,7 @@
 
 ####2014-02-27####
 
+ * __fixed word regex to support blank lines and extra punc."__ (`James Tomasino`)
  * __changed pre-commit hook to bullet todo items__ (`James Tomasino`)
  * __bound pause/play to element__ (`James Tomasino`)
  * __text pulls from textarea on page on blur__ (`James Tomasino`)
