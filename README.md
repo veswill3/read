@@ -9,6 +9,10 @@ Unit test Word class
 
 ## COMMIT LOG ##
 
+####2014-02-27####
+
+ * __text pulls from textarea on page on blur__ (`James Tomasino`)
+
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)

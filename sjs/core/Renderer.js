@@ -2,33 +2,58 @@
 	"use strict";
 
 	var Renderer = function ( block, element ) {
-		this.block = block;
-		this.element = element;
+		this.setBlock(block);
+		this.setElement(element);
 		this.currentWord = null;
 		this.delay = 0;
 		this.setWPM(300);
 		this.timer = null;
 		this.slowStartCount = 5;
+		this.isPlaying = false;
 	};
 
 	var p = Renderer.prototype;
 
 	p.setBlock = function (val) {
-		this.pause();
-		this.restart();
-		this.block = val;
-		this.clearDisplay();
+		if (val) {
+			this.pause();
+			this.restart();
+			this.block = val;
+			this.clearDisplay();
+		}
 	};
 
 	p.setElement = function (val) {
-		this.clearDisplay();
-		this.element = val;
+		if (val) {
+			this.clearDisplay();
+
+			// unbind old binds
+
+			if (val instanceof $) {
+				this.element = val;
+			} else {
+				this.element = $(val);
+			}
+
+			// bind new binds
+			this.element.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+
+		}
+	};
+
+	p.playPauseToggle = function () {
+		if (this.isPlaying) {
+			this.pause();
+		} else {
+			this.play();
+		}
 	};
 
 	p.play = function () {
 		if (this.block) {
 			this.slowStartCount = 5;
 			this.display();
+			this.isPlaying = true;
 		}
 	};
 
@@ -43,12 +68,13 @@
 			this.showWord();
 			var time = this.delay * this.currentWord.timeMultiplier;
 			if (this.slowStartCount) {
-				this.slowStartCount --;
 				time = time * this.slowStartCount;
+				this.slowStartCount --;
 			}
 			this.timer = setTimeout($.proxy(this.next, this),time);
 		} else {
 			this.clearDisplay();
+			this.isPlaying = false;
 		}
 	};
 
@@ -63,6 +89,7 @@
 
 	p.pause = function () {
 		clearTimeout(this.timer);
+		this.isPlaying = false;
 	};
 
 	p.restart = function () {
