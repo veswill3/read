@@ -8,3 +8,5 @@ var words = [];
 var i = rawWords.length; while (i--) {
 	words.unshift( new Word( rawWords[i] ) ) ;
 }
+
+console.log (words);
