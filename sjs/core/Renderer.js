@@ -8,11 +8,13 @@
 		this.delay = 0;
 		this.setWPM(300);
 		this.timer = null;
+		this.slowStartCount = 5;
 	};
 
 	var p = Renderer.prototype;
 
 	p.play = function () {
+		this.slowStartCount = 5;
 		this.display();
 	};
 
@@ -26,6 +28,10 @@
 		if (this.currentWord) {
 			this.showWord();
 			var time = this.delay * this.currentWord.timeMultiplier;
+			if (this.slowStartCount) {
+				this.slowStartCount --;
+				time = time * this.slowStartCount;
+			}
 			this.timer = setTimeout($.proxy(this.next, this),time);
 		} else {
 			showWord();

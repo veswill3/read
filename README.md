@@ -12,6 +12,7 @@ Unit test Word class
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * adding width to prevent word-wrap (`James Tomasino`)
  * basic styling to set up eric (`James Tomasino`)
  * maintaining other styles on display element when animating (`James Tomasino`)
  * tweaked time multipliers and tested restart and pause methods (`James Tomasino`)
