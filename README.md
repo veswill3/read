@@ -41,6 +41,8 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-02-27####
 
+ * __centered styles__ (`James Tomasino`)
+ * __adding readme content__ (`James Tomasino`)
  * __add rendered files to ghpages__ (`James Tomasino`)
  * __demo autoplays__ (`James Tomasino`)
  * __added Pride and Prejudice demo__ (`James Tomasino`)
