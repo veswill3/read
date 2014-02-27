@@ -5,6 +5,7 @@
 
 ####2014-02-27####
 
+ * __added speed indicator on side__ (`James Tomasino`)
  * __dom is built by class__ (`James Tomasino`)
  * __updated styles__ (`James Tomasino`)
  * __ignoring md files in gh-pages__ (`James Tomasino`)
