@@ -1,4 +1,4 @@
-# READ #
+# READ [![Build Status](https://travis-ci.org/jamestomasino/read.png?branch=develop)](https://travis-ci.org/jamestomasino/read)
 
 ## Overview ##
 
