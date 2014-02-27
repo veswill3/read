@@ -3,6 +3,7 @@
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * fixing linting errors (`James Tomasino`)
  * adding gitignore (`James Tomasino`)
  * added grunt boilerplate (`James Tomasino`)
  * handling fancyquotes, length, and index (`James Tomasino`)
