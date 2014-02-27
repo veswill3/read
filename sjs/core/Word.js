@@ -42,7 +42,7 @@
 			case "!":
 			case "?":
 				this.hasPeriod = true;
-				this.timeMultiplier = 2;
+				this.timeMultiplier = 2.5;
 				break;
 			case ":":
 			case ";":

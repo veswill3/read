@@ -7,6 +7,7 @@
 		this.currentWord = null;
 		this.delay = 0;
 		this.setWPM(300);
+		this.timer = null;
 	};
 
 	var p = Renderer.prototype;
@@ -25,20 +26,21 @@
 		if (this.currentWord) {
 			this.showWord();
 			var time = this.delay * this.currentWord.timeMultiplier;
-			setTimeout($.proxy(this.next, this),time);
+			this.timer = setTimeout($.proxy(this.next, this),time);
 		}
 	};
 
 	p.showWord = function () {
 		this.element.html(this.currentWord.val);
+		this.element.removeClass().addClass('index' + this.currentWord.index);
 	};
 
 	p.pause = function () {
-
+		clearTimeout(this.timer);
 	};
 
 	p.restart = function () {
-
+		this.block.restart();
 	};
 
 	p.setWPM = function ( val ) {

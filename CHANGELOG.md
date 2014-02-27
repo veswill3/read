@@ -3,6 +3,7 @@
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * added renderer and block classes (`James Tomasino`)
  * stubbed out unit test (`James Tomasino`)
  * renaming index (`James Tomasino`)
  * adding console.log (`James Tomasino`)

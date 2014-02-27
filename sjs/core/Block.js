@@ -44,6 +44,10 @@
 		this.index = Math.max( this.index - 1, 0 );
 	};
 
+	p.restart = function () {
+		this.index = 0;
+	};
+
 	window.Block = Block;
 
 }(window) );
