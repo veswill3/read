@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-02-27####
 
+ * __better regex for word seperation__ (`James Tomasino`)
  * __added speed indicator on side__ (`James Tomasino`)
  * __dom is built by class__ (`James Tomasino`)
  * __tap when completed restarts__ (`James Tomasino`)
