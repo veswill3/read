@@ -3,24 +3,28 @@
 @import "compass/reset";
 
 .wrapper { 
-	position: absolute;
-	top: 20px;
-	left: 200px;
+	position: relative;
+	@include box-sizing(border-box);
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
 }
 
 .indicator {
 	position: absolute;
+	@include box-sizing(border-box);
 	display: block;
 	width: 2px;
 	height: 40px;
 	top: 5px;
-	left: 20px;
+	left: 220px;
 	background-color: rgba(150,150,150,.2);
 }
 
 .display {
 	position: absolute;
-	padding: 10px;
+	@include box-sizing(border-box);
+	padding: 10px 10px 10px 215px;
 	width: 300px;
 	font-family: 'Droid Serif', serif;
 	font-size: 30px;

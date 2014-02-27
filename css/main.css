@@ -65,59 +65,69 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 5, ../scss/main.scss */
 .wrapper {
-  position: absolute;
-  top: 20px;
-  left: 200px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 500px;
+  height: 50px;
+  margin: 0 auto;
 }
 
-/* line 11, ../scss/main.scss */
+/* line 13, ../scss/main.scss */
 .indicator {
   position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   width: 2px;
   height: 40px;
   top: 5px;
-  left: 20px;
+  left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
 
-/* line 21, ../scss/main.scss */
+/* line 24, ../scss/main.scss */
 .display {
   position: absolute;
-  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 10px 10px 215px;
   width: 300px;
   font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
-/* line 28, ../scss/main.scss */
+/* line 32, ../scss/main.scss */
 .display.index1 {
   margin-left: -12px;
 }
-/* line 32, ../scss/main.scss */
+/* line 36, ../scss/main.scss */
 .display.index2 {
   margin-left: -24px;
 }
-/* line 36, ../scss/main.scss */
+/* line 40, ../scss/main.scss */
 .display.index3 {
   margin-left: -38px;
 }
-/* line 40, ../scss/main.scss */
+/* line 44, ../scss/main.scss */
 .display.index4 {
   margin-left: -52px;
 }
-/* line 44, ../scss/main.scss */
+/* line 48, ../scss/main.scss */
 .display.index5 {
   margin-left: -66px;
 }
 
-/* line 49, ../scss/main.scss */
+/* line 53, ../scss/main.scss */
 .input {
   position: absolute;
   top: 150px;
   left: 10px;
   width: 500px;
 }
-/* line 55, ../scss/main.scss */
+/* line 59, ../scss/main.scss */
 .input textarea {
   font-family: 'Droid Serif', serif;
   font-size: 12px;
