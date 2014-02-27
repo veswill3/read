@@ -65,7 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 5, ../scss/main.scss */
 .read {
-  position: absolute;
+  position: fixed;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -75,8 +75,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 0;
   margin: 0;
   overflow: hidden;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(60%, #ffffff), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #ffffff 60%, #eeeeee);
+  background-image: -moz-linear-gradient(top, #ffffff 60%, #eeeeee);
+  background-image: -o-linear-gradient(top, #ffffff 60%, #eeeeee);
+  background-image: linear-gradient(top, #ffffff 60%, #eeeeee);
+  z-index: 999999;
+  cursor: pointer;
 }
-/* line 15, ../scss/main.scss */
+/* line 18, ../scss/main.scss */
 .read .read_position {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -86,7 +93,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 50px;
   margin: 0 auto;
 }
-/* line 23, ../scss/main.scss */
+/* line 26, ../scss/main.scss */
 .read .read_position .indicator {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -99,7 +106,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
-/* line 34, ../scss/main.scss */
+/* line 37, ../scss/main.scss */
 .read .read_position .display {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -110,28 +117,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
-/* line 42, ../scss/main.scss */
+/* line 45, ../scss/main.scss */
 .read .read_position .display.index1 {
   margin-left: -12px;
 }
-/* line 46, ../scss/main.scss */
+/* line 49, ../scss/main.scss */
 .read .read_position .display.index2 {
   margin-left: -24px;
 }
-/* line 50, ../scss/main.scss */
+/* line 53, ../scss/main.scss */
 .read .read_position .display.index3 {
   margin-left: -38px;
 }
-/* line 54, ../scss/main.scss */
+/* line 57, ../scss/main.scss */
 .read .read_position .display.index4 {
   margin-left: -52px;
 }
-/* line 58, ../scss/main.scss */
+/* line 61, ../scss/main.scss */
 .read .read_position .display.index5 {
   margin-left: -66px;
 }
 
-/* line 65, ../scss/main.scss */
+/* line 68, ../scss/main.scss */
+body {
+  padding-top: 50px;
+}
+
+/* line 72, ../scss/main.scss */
 .wrapper {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -140,17 +152,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 500px;
   margin: 0 auto;
 }
-/* line 71, ../scss/main.scss */
+/* line 78, ../scss/main.scss */
 .wrapper .input {
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  top: 70px;
+  top: 20px;
   left: 0;
   width: 500px;
 }
-/* line 78, ../scss/main.scss */
+/* line 85, ../scss/main.scss */
 .wrapper .input textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -10,6 +10,7 @@
 		this.timer = null;
 		this.slowStartCount = 5;
 		this.isPlaying = false;
+		this.isEnded = false;
 	};
 
 	var p = Renderer.prototype;
@@ -37,7 +38,6 @@
 
 			// bind new binds
 			this.element.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
-
 		}
 	};
 
@@ -51,6 +51,10 @@
 
 	p.play = function () {
 		if (this.block) {
+			if (this.isEnded) {
+				this.restart();
+				this.isEnded = false;
+			}
 			this.slowStartCount = 5;
 			this.display();
 			this.isPlaying = true;
@@ -75,6 +79,7 @@
 		} else {
 			this.clearDisplay();
 			this.isPlaying = false;
+			this.isEnded = true;
 		}
 	};
 

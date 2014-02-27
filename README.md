@@ -41,6 +41,8 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-02-27####
 
+ * __ignoring md files in gh-pages__ (`James Tomasino`)
+ * __tap when completed restarts__ (`James Tomasino`)
  * __styled .read block for portability__ (`James Tomasino`)
  * __centered styles__ (`James Tomasino`)
  * __adding readme content__ (`James Tomasino`)
