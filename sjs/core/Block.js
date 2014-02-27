@@ -3,7 +3,7 @@
 ( function ( window ){
 	"use strict";
 
-	var wordRegex = /[\w\'\"\,\.\;\:\-\(\)\“\’\‘\”]+/g;
+	var wordRegex = /([\w\'\"\,\.\;\:\?\!\-\(\)\“\’\‘\”]+|[\r\n]+)/g;
 
 	var Block = function ( val ) {
 		this.val = val;
