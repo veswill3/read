@@ -2,6 +2,8 @@
 
 ####2014-02-27####
 
+ * __better regex for word seperation__ (`James Tomasino`)
+ * __adding favicon__ (`James Tomasino`)
  * __added speed indicator on side__ (`James Tomasino`)
  * __dom is built by class__ (`James Tomasino`)
  * __updated styles__ (`James Tomasino`)
