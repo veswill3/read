@@ -2,6 +2,7 @@
 
 ####2014-02-27####
 
+ * __added speed indicator on side__ (`James Tomasino`)
  * __dom is built by class__ (`James Tomasino`)
  * __tap when completed restarts__ (`James Tomasino`)
  * __styled .read block for portability__ (`James Tomasino`)
