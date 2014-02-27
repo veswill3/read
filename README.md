@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-02-27####
 
+ * __styled .read block for portability__ (`James Tomasino`)
  * __centered styles__ (`James Tomasino`)
  * __adding readme content__ (`James Tomasino`)
  * __demo autoplays__ (`James Tomasino`)
