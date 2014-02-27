@@ -11,6 +11,7 @@ Speed reading via RSVP
 
 ####2014-02-27####
 
+ * __demo autoplays__ (`James Tomasino`)
  * __added Pride and Prejudice demo__ (`James Tomasino`)
  * __fixed word regex to support blank lines and extra punc."__ (`James Tomasino`)
  * __changed pre-commit hook to bullet todo items__ (`James Tomasino`)
