@@ -27,12 +27,18 @@
 			this.showWord();
 			var time = this.delay * this.currentWord.timeMultiplier;
 			this.timer = setTimeout($.proxy(this.next, this),time);
+		} else {
+			showWord();
 		}
 	};
 
 	p.showWord = function () {
-		this.element.html(this.currentWord.val);
-		this.element.removeClass('index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+		if (this.currentWord) {
+			this.element.html(this.currentWord.val);
+			this.element.removeClass('index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+		} else {
+			this.element.removeClass('index1 index2 index3 index4 index5').html("");
+		}
 	};
 
 	p.pause = function () {

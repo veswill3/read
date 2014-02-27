@@ -1,3 +1,46 @@
 // Compass definitions
 @import "compass";
 @import "compass/reset";
+
+.wrapper { 
+	position: absolute;
+	top: 20px;
+	left: 200px;
+}
+
+.indicator {
+	position: absolute;
+	display: block;
+	width: 2px;
+	height: 40px;
+	top: 5px;
+	left: 20px;
+	background-color: rgba(150,150,150,.2);
+}
+
+.display {
+	position: absolute;
+	padding: 10px;
+	font-family: 'Droid Serif', serif;
+	font-size: 30px;
+
+	&.index1 {
+		margin-left: -12px;
+	}
+
+	&.index2 {
+		margin-left: -24px;
+	}
+
+	&.index3 {
+		margin-left: -38px;
+	}
+
+	&.index4 {
+		margin-left: -52px;
+	}
+
+	&.index5 {
+		margin-left: -66px;
+	}
+}
