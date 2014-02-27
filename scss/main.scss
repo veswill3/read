@@ -3,7 +3,7 @@
 @import "compass/reset";
 
 .read { 
-	position: absolute;
+	position: fixed;
 	@include box-sizing(border-box);
 	top: 0;
 	width: 100%;
@@ -11,6 +11,9 @@
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
+	@include background-image(linear-gradient(top, white 60%, #EEE));
+	z-index: 999999;
+	cursor: pointer;
 
 	.read_position {
 
@@ -62,6 +65,10 @@
 	}
 }
 
+body {
+	padding-top: 50px;
+}
+
 .wrapper { 
 	position: relative;
 	@include box-sizing(border-box);
@@ -71,7 +78,7 @@
 	.input {
 		position: absolute;
 		@include box-sizing(border-box);
-		top: 70px;
+		top: 20px;
 		left: 0;
 		width: 500px;
 
