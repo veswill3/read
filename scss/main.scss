@@ -4,6 +4,7 @@
 
 .read { 
 	position: fixed;
+	display: none;
 	@include box-sizing(border-box);
 	top: 0;
 	width: 100%;
@@ -63,10 +64,6 @@
 			}
 		}
 	}
-}
-
-body {
-	padding-top: 50px;
 }
 
 .wrapper { 

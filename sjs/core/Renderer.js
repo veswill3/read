@@ -1,16 +1,25 @@
 ( function ( window, $ ){
 	"use strict";
 
+	var ele = '<div class="read"><div class="read_position"><div class="indicator"></div><div class="display"></div></div></div>';
+
 	var Renderer = function ( block, element ) {
-		this.setBlock(block);
-		this.setElement(element);
+
+		// Defaults
+		this.parentElement = null;
+		this.element = null;
+		this.displayElement = null;
 		this.currentWord = null;
 		this.delay = 0;
-		this.setWPM(300);
 		this.timer = null;
 		this.slowStartCount = 5;
 		this.isPlaying = false;
 		this.isEnded = false;
+
+		// Configured
+		this.setWPM(300);
+		this.setBlock(block);
+		this.setElement(element);
 	};
 
 	var p = Renderer.prototype;
@@ -25,20 +34,31 @@
 	};
 
 	p.setElement = function (val) {
-		if (val) {
-			this.clearDisplay();
-
-			// unbind old binds
-
-			if (val instanceof $) {
-				this.element = val;
-			} else {
-				this.element = $(val);
-			}
-
-			// bind new binds
-			this.element.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+		if (!val) {
+			val = 'body';
 		}
+
+		this.clearDisplay();
+
+		// unbind old binds
+		if (this.parentElement) {
+			this.parentElement.find('.read').remove();
+			this.parentElement.css( "padding-top", "-=50" );
+		}
+
+		if (val instanceof $) {
+			this.parentElement = val;
+		} else {
+			this.parentElement = $(val);
+		}
+
+		// bind new binds
+		this.element = $(ele);
+		this.parentElement.animate( { "padding-top": "+=50" }, 400);
+		this.parentElement.prepend(this.element);
+		this.element.slideDown();
+		this.displayElement = this.element.find('.display');
+		this.element.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
 	};
 
 	p.playPauseToggle = function () {
@@ -84,12 +104,14 @@
 	};
 
 	p.showWord = function () {
-		this.element.html(this.currentWord.val);
-		this.element.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+		if (this.displayElement) {
+			this.displayElement.html(this.currentWord.val);
+			this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+		}
 	};
 
 	p.clearDisplay = function () {
-		if (this.element) this.element.removeClass('index0 index1 index2 index3 index4 index5').html("");
+		if (this.displayElement) this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').html("");
 	};
 
 	p.pause = function () {
