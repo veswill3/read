@@ -3,9 +3,13 @@
 
 var b;
 var r;
-r = new Renderer ( null, $('.display') );
+
 
 $(function() {
+	b = new Block ( $('#txt').val() );
+	r = new Renderer ( b, $('.display') );
+	r.play();
+
 	$('#txt').on('blur', function () {
 		if (this.value) {
 			b = new Block ( this.value );
