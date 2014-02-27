@@ -5,6 +5,7 @@
 
 ####2014-02-27####
 
+ * __dom is built by class__ (`James Tomasino`)
  * __updated styles__ (`James Tomasino`)
  * __ignoring md files in gh-pages__ (`James Tomasino`)
  * __tap when completed restarts__ (`James Tomasino`)
