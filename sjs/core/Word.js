@@ -40,12 +40,13 @@
 		switch (lastChar) {
 			case ".":
 			case "!":
+			case "?":
 				this.hasPeriod = true;
 				this.timeMultiplier = 2;
 				break;
-			case "?":
 			case ":":
 			case ";":
+			case ",":
 			case "-":
 				this.hasOtherPunc = true;
 				this.timeMultiplier = 1.5;
@@ -56,10 +57,12 @@
 			case 0:
 			case 1:
 				this.index = 0;
+				this.timeMultiplier += 0.1;
 				break;
 			case 2:
 			case 3:
 			case 4:
+				this.timeMultiplier += 0.2;
 				this.index = 1;
 				break;
 			case 5:
@@ -74,9 +77,11 @@
 			case 12:
 			case 13:
 				this.index = 3;
+				this.timeMultiplier += 0.2;
 				break;
 			default:
 				this.index = 4;
+				this.timeMultiplier += 0.4;
 				break;
 		}
 

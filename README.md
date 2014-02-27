@@ -12,6 +12,7 @@ Unit test Word class
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * stubbed out unit test (`James Tomasino`)
  * renaming index (`James Tomasino`)
  * adding console.log (`James Tomasino`)
  * removing test code (`James Tomasino`)
