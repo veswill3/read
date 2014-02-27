@@ -2,6 +2,7 @@
 
 ####2014-02-27####
 
+ * __styled .read block for portability__ (`James Tomasino`)
  * __centered styles__ (`James Tomasino`)
  * __adding readme content__ (`James Tomasino`)
  * __add rendered files to ghpages__ (`James Tomasino`)
