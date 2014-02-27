@@ -85,6 +85,11 @@
 				break;
 		}
 
+		// Adjust index for leading quote
+		if (this.hasLeadingQuote) {
+			this.index ++;
+		}
+
 	};
 
 	window.Word = Word;

@@ -32,7 +32,7 @@
 
 	p.showWord = function () {
 		this.element.html(this.currentWord.val);
-		this.element.removeClass().addClass('index' + this.currentWord.index);
+		this.element.removeClass('index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
 	};
 
 	p.pause = function () {

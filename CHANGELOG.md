@@ -3,6 +3,8 @@
 ####2014-02-26####
 
  * __Initial commit__ (`James Tomasino`)
+ * tweaked time multipliers and tested restart and pause methods (`James Tomasino`)
+ * added travis build status to readme (`James Tomasino`)
  * added renderer and block classes (`James Tomasino`)
  * stubbed out unit test (`James Tomasino`)
  * renaming index (`James Tomasino`)
