@@ -2,7 +2,6 @@
 	"use strict";
 
 	var textRegex = /\w/g;
-
 	var Word = function ( val ) {
 		this.val = val;
 
@@ -101,7 +100,7 @@
 ( function ( window ){
 	"use strict";
 
-	var wordRegex = /([^\s\-]+(-)?|[\r\n]+)/g;
+	var wordRegex = /([^\s\-\—]+[\-\—]?|[\r\n]+)/g;
 	var presuf = /^(\W*)(anti|auto|ab|an|ax|al|as|bi|bet|be|contra|cat|cath|cir|cum|cog|col|com|con|cor|could|co|desk|de|dis|did|dif|di|eas|every|ever|extra|ex|end|en|em|epi|evi|func|fund|fin|hyst|hy|han|il|in|im|ir|just|jus|loc|lig|lit|li|mech|manu|man|mal|mis|mid|mono|multi|mem|micro|non|nano|ob|oc|of|opt|op|over|para|per|post|pre|peo|pro|retro|rea|re|rhy|should|some|semi|sen|sol|sub|suc|suf|super|sup|sur|sus|syn|sym|syl|tech|trans|tri|typo|type|uni|un|van|vert|with|would|won)?(.*?)(weens?|widths?|icals?|ables?|ings?|tions?|ions?|ies|isms?|ists?|ful|ness|ments?|ly|ify|ize|ise|ity|en|ers?|ences?|tures?|ples?|als?|phy|puts?|phies|ry|ries|cy|cies|mums?|ous|cents?)?(\W*)$/i;
 	var vowels = 'aeiouyAEIOUY'+
 		'ẚÁáÀàĂăẮắẰằẴẵẲẳÂâẤấẦầẪẫẨẩǍǎÅåǺǻÄäǞǟÃãȦȧǠǡĄąĀāẢảȀȁȂȃẠạẶặẬậḀḁȺⱥ'+
@@ -197,9 +196,21 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
+	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div><div class="before"></div><div class="letter"></div></div><input class="speed" type="text" /></div>';
 
-	var Read = function ( block, element ) {
+	$.fn.textWidth = function(){
+		var self = $(this),
+			children = self.contents(),
+			calculator = $('<span style="display: inline-block;" />'),
+			width;
+
+		children.wrap(calculator);
+		width = children.parent().width();
+		children.unwrap();
+		return width;
+	};
+
+	function Read ( block, element, speed ) {
 
 		// Defaults
 		this.parentElement = null;
@@ -213,13 +224,31 @@
 		this.isPlaying = false;
 		this.isEnded = false;
 
+		Read.enforceSingleton(this);
+
 		// Configured
-		this.setWPM(300);
+		this.setWPM(speed || 300);
 		this.setBlock(block);
 		this.setElement(element);
 	};
 
+	Read.enforceSingleton = function (inst) {
+		if (Read.instance) {
+			Read.instance.destroy();
+			Read.instance = null;
+		}
+		Read.instance = inst;
+	};
+
 	var p = Read.prototype;
+
+	p.destroy = function () {
+		p.pause();
+		this.speedElement.off ( "blur" );
+		this.speedElement.off ( "keydown" );
+		this.parentElement.find('.read').remove();
+		this.parentElement.css( "padding-top", "-=50" );
+	};
 
 	p.setBlock = function (val) {
 		if (val) {
@@ -307,8 +336,21 @@
 
 	p.showWord = function () {
 		if (this.displayElement) {
+			var word = this.currentWord.val;
+
+			var before = word.substr(0, this.currentWord.index);
+			var letter = word.substr(this.currentWord.index, 1);
+
+			console.log ( before, letter );
+
+			// fake elements
+			var $before = this.element.find('.before').html(before).css("opacity","0");
+			var $letter = this.element.find('.letter').html(letter).css("opacity","0");
+
+			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
+
 			this.displayElement.html(this.currentWord.val);
-			this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+			this.displayElement.css("margin-left", -calc);
 		}
 
 		if (this.speedElement && !this.speedElement.is(":focus")) {
@@ -321,7 +363,7 @@
 	};
 
 	p.clearDisplay = function () {
-		if (this.displayElement) this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').html("");
+		if (this.displayElement) this.displayElement.html("");
 	};
 
 	p.pause = function () {
