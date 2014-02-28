@@ -1,5 +1,9 @@
 ## COMMIT LOG ##
 
+####2014-02-28####
+
+ * __merged classes into 1 file and named better__ (`James Tomasino`)
+
 ####2014-02-27####
 
  * __better regex for word parsing__ (`James Tomasino`)

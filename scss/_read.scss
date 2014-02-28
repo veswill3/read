@@ -1,0 +1,77 @@
+.read {
+	position: fixed;
+	display: none;
+	@include box-sizing(border-box);
+	top: 0;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	@include background-image(linear-gradient(top, white 60%, #EEE));
+	z-index: 999999;
+	cursor: pointer;
+
+	.read_position {
+
+		position: relative;
+		@include box-sizing(border-box);
+		width: 500px;
+		height: 50px;
+		margin: 0 auto;
+
+		.indicator {
+			position: absolute;
+			@include box-sizing(border-box);
+			display: block;
+			width: 2px;
+			height: 40px;
+			top: 5px;
+			left: 220px;
+			background-color: rgba(150,150,150,.2);
+		}
+
+
+		.display {
+			position: absolute;
+			@include box-sizing(border-box);
+			padding: 10px 10px 10px 210px;
+			width: 300px;
+			font-family: 'Droid Serif', serif;
+			font-size: 30px;
+
+			&.index1 {
+				margin-left: -12px;
+			}
+
+			&.index2 {
+				margin-left: -24px;
+			}
+
+			&.index3 {
+				margin-left: -38px;
+			}
+
+			&.index4 {
+				margin-left: -52px;
+			}
+
+			&.index5 {
+				margin-left: -66px;
+			}
+		}
+	}
+
+	.speed {
+		display: block;
+		position: absolute;
+		@include box-sizing(border-box);
+		top: 0;
+		right: 10px;
+		text-align: center;
+		margin: 10px;
+		width: 100px;
+		font-family: 'Droid Serif', serif;
+		font-size: 24px;
+	}
+}

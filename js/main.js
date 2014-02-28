@@ -185,6 +185,10 @@
 		this.index = 0;
 	};
 
+	p.getProgress = function () {
+		return this.index / this.words.length;
+	};
+
 	window.ReadBlock = Block;
 
 }(window) );
@@ -193,7 +197,7 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
+	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
 
 	var Read = function ( block, element ) {
 
@@ -297,6 +301,7 @@
 			this.clearDisplay();
 			this.isPlaying = false;
 			this.isEnded = true;
+			this.element.attr('data-progrecss', 100 );
 		}
 	};
 
@@ -308,6 +313,10 @@
 
 		if (this.speedElement && !this.speedElement.is(":focus")) {
 			this.speedElement.val(this._wpm);
+		}
+
+		if (this.element && this.block) {
+			this.element.attr('data-progrecss', parseInt(this.block.getProgress() * 100, 10) );
 		}
 	};
 
