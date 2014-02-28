@@ -2,6 +2,7 @@
 
 ####2014-02-28####
 
+ * __splitting up styles__ (`James Tomasino`)
  * __merged classes into 1 file and named better__ (`James Tomasino`)
 
 ####2014-02-27####
