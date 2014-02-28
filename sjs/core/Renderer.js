@@ -1,7 +1,7 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
+	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
 
 	var Renderer = function ( block, element ) {
 
@@ -116,6 +116,11 @@
 
 		if (this.speedElement && !this.speedElement.is(":focus")) {
 			this.speedElement.val(this._wpm);
+		}
+
+		if (this.element && this.block) {
+			var prog = parseInt(this.block.getProgress() * 100, 10);
+			this.element.attr("data-progrecss", prog);
 		}
 	};
 

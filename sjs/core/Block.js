@@ -87,6 +87,10 @@
 		this.index = 0;
 	};
 
+	p.getProgress = function () {
+		return this.index / this.words.length;
+	};
+
 	window.Block = Block;
 
 }(window) );
