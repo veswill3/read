@@ -230,7 +230,7 @@
 		this.setWPM(speed || 300);
 		this.setBlock(block);
 		this.setElement(element);
-	};
+	}
 
 	Read.enforceSingleton = function (inst) {
 		if (Read.instance) {

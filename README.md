@@ -41,8 +41,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-02-28####
 
+ * __adding progress indicator back in__ (`James Tomasino`)
  * __splitting up styles__ (`James Tomasino`)
  * __merged classes into 1 file and named better__ (`James Tomasino`)
+ * better positioning, one instance, color fix (`James Tomasino`)
 
 ####2014-02-27####
 
