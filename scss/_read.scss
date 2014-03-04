@@ -1,4 +1,4 @@
-.read {
+.__read {
 	position: fixed;
 	display: none;
 	@include box-sizing(border-box);
@@ -13,7 +13,7 @@
 	cursor: pointer;
 	color: #000;
 
-	.read_position {
+	.__read_position {
 
 		position: relative;
 		@include box-sizing(border-box);
@@ -21,7 +21,7 @@
 		height: 50px;
 		margin: 0 auto;
 
-		.indicator {
+		.__read_indicator {
 			position: absolute;
 			@include box-sizing(border-box);
 			display: block;
@@ -33,42 +33,22 @@
 		}
 
 
-		.display {
+		.__read_display {
 			position: absolute;
 			@include box-sizing(border-box);
 			padding: 10px 10px 10px 210px;
 			width: 300px;
 			font-family: 'Droid Serif', serif;
 			font-size: 30px;
-
-			&.index1 {
-				margin-left: -12px;
-			}
-
-			&.index2 {
-				margin-left: -24px;
-			}
-
-			&.index3 {
-				margin-left: -38px;
-			}
-
-			&.index4 {
-				margin-left: -52px;
-			}
-
-			&.index5 {
-				margin-left: -66px;
-			}
 		}
 	}
 
-	.speed {
+	.__read_speed {
 		display: block;
 		position: absolute;
 		@include box-sizing(border-box);
 		top: 0;
-		right: 10px;
+		left: 10px;
 		text-align: center;
 		margin: 10px;
 		width: 100px;

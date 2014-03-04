@@ -1,5 +1,6 @@
 .sass-cache/*
-css/*
-js/*
 node_modules/*
 node_modules
+README.md
+CHANGELOG.md
+TODO.md
