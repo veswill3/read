@@ -39,8 +39,14 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-04####
+
+ * updated Read.js to use new dom (`James Tomasino`)
+
 ####2014-02-28####
 
+ * __adding progress indicator back in__ (`James Tomasino`)
+ * __splitting up styles__ (`James Tomasino`)
  * __merged classes into 1 file and named better__ (`James Tomasino`)
 
 ####2014-02-27####
