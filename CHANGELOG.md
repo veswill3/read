@@ -3,6 +3,7 @@
 ####2014-03-04####
 
  * updated Read.js to use new dom (`James Tomasino`)
+ * updated Read.js to use new dom (`James Tomasino`)
 
 ####2014-02-28####
 
