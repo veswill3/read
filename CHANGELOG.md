@@ -2,6 +2,7 @@
 
 ####2014-03-04####
 
+ * moved speed change box to left for better display on small screens (`James Tomasino`)
  * matching styles to dom change (`James Tomasino`)
  * updated Read.js to use new dom (`James Tomasino`)
  * updated Read.js to use new dom (`James Tomasino`)
