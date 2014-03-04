@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-04####
 
+ * matching styles to dom change (`James Tomasino`)
  * updated Read.js to use new dom (`James Tomasino`)
  * updated Read.js to use new dom (`James Tomasino`)
 
