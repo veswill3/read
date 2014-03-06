@@ -194,8 +194,6 @@
 
 }(window) );
 
-
-
 ( function ( window, $ ){
 	"use strict";
 
@@ -272,7 +270,7 @@
 				time = time * this._options.slowStartCount;
 				this._options.slowStartCount --;
 			}
-			this._timer = setTimeout($.proxy(this.next, this),time);
+			this._timer = setTimeout($.proxy(this._next, this),time);
 		} else {
 			this.clearDisplay();
 			this._isPlaying = false;
@@ -322,6 +320,11 @@
 			this._block = new ReadBlock(val);
 			this.clearDisplay();
 		}
+	};
+
+	p._next = function() {
+		this._block._next();
+		this._display();
 	};
 
 	p.setElement = function (val) {
@@ -374,11 +377,6 @@
 			this._display();
 			this._isPlaying = true;
 		}
-	};
-
-	p.next = function() {
-		this._block.next();
-		this._display();
 	};
 
 	p.clearDisplay = function () {
