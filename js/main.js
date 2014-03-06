@@ -323,7 +323,7 @@
 	};
 
 	p._next = function() {
-		this._block._next();
+		this._block.next();
 		this._display();
 	};
 
