@@ -1,3 +1,5 @@
+//= require ./ReadWord
+//= require ./ReadBlock
 //= require ./Read
 
 var r;

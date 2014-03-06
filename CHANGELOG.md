@@ -2,6 +2,7 @@
 
 ####2014-03-06####
 
+ * __refactor to privatize vars and funcs with ___ (`James Tomasino`)
  * __added new options object in Read creation__ (`James Tomasino`)
 
 ####2014-03-04####

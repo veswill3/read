@@ -2,13 +2,13 @@
 	"use strict";
 
 	var textRegex = /\w/g;
-	var Word = function ( val ) {
+	var ReadWord = function ( val ) {
 		this.val = val;
 
 		// Center value for alignment
 		this.index = 0;
 
-		// Word Status Values
+		// ReadWord Status Values
 		this.hasLeadingQuote = false;
 		this.hasTrailingQuote = false;
 		this.hasPeriod = false;
@@ -19,7 +19,7 @@
 		this.process();
 	};
 
-	var p = Word.prototype;
+	var p = ReadWord.prototype;
 
 	p.process = function () {
 
@@ -94,7 +94,7 @@
 
 	};
 
-	window.ReadWord = Word;
+	window.ReadWord = ReadWord;
 
 }(window) );
 
@@ -115,7 +115,7 @@
 	var vccv = new RegExp('('+v+c+')('+c+v+')', 'g');
 	var simple = new RegExp('(.{2,4}'+v+')'+'('+c+')', 'g');
 
-	var Block = function ( val ) {
+	var ReadBlock = function ( val ) {
 		this.val = val;
 
 		this.words = [];
@@ -124,7 +124,7 @@
 		this.process();
 	};
 
-	var p = Block.prototype;
+	var p = ReadBlock.prototype;
 
 	p.process = function () {
 		// Cleanup
@@ -190,9 +190,10 @@
 		return this.index / this.words.length;
 	};
 
-	window.ReadBlock = Block;
+	window.ReadBlock = ReadBlock;
 
 }(window) );
+
 
 
 ( function ( window, $ ){
@@ -447,6 +448,8 @@
 
 }(window, jQuery) );
 
+//= require ./ReadWord
+//= require ./ReadBlock
 //= require ./Read
 
 var r;
