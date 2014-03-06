@@ -8,7 +8,7 @@ $(function() {
 
 	$('#txt').on('blur', function () {
 		if (this.value) {
-			r.setBlock ( this.value );
+			r.setText ( this.value );
 			r.play();
 		}
 	});
