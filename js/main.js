@@ -5,12 +5,16 @@
 	var Word = function ( val ) {
 		this.val = val;
 
+		// Center value for alignment
 		this.index = 0;
-		this.timeMultiplier = 1;
+
+		// Word Status Values
 		this.hasLeadingQuote = false;
 		this.hasTrailingQuote = false;
 		this.hasPeriod = false;
 		this.hasOtherPunc = false;
+		this.isShort = false;
+		this.isLong = false;
 
 		this.process();
 	};
@@ -42,14 +46,12 @@
 			case "!":
 			case "?":
 				this.hasPeriod = true;
-				this.timeMultiplier = 2.5;
 				break;
 			case ":":
 			case ";":
 			case ",":
 			case "-":
 				this.hasOtherPunc = true;
-				this.timeMultiplier = 1.5;
 				break;
 		}
 
@@ -57,13 +59,13 @@
 			case 0:
 			case 1:
 				this.index = 0;
-				this.timeMultiplier += 0.1;
+				this.isShort = true;
 				break;
 			case 2:
 			case 3:
 			case 4:
-				this.timeMultiplier += 0.2;
 				this.index = 1;
+				this.isShort = true;
 				break;
 			case 5:
 			case 6:
@@ -77,11 +79,11 @@
 			case 12:
 			case 13:
 				this.index = 3;
-				this.timeMultiplier += 0.2;
+				this.isLong = true;
 				break;
 			default:
 				this.index = 4;
-				this.timeMultiplier += 0.4;
+				this.isLong = true;
 				break;
 		}
 
@@ -210,26 +212,37 @@
 		return width;
 	};
 
-	function Read ( block, element, speed ) {
+	var defaultOptions = {
+		element: null,
+		wpm: 300,
+		slowStartCount: 5,
+		sentenceDelay: 2.5,
+		otherPuncDelay: 1.5,
+		shortWordDelay: 1.3,
+		longWordDelay: 1.4
+	};
+
+
+	function Read ( block, options ) { //element, wpm ) {
 
 		// Defaults
 		this.parentElement = null;
-		this.element = null;
 		this.displayElement = null;
 		this.speedElement = null;
 		this.currentWord = null;
 		this.delay = 0;
 		this.timer = null;
-		this.slowStartCount = 5;
 		this.isPlaying = false;
 		this.isEnded = false;
+
+		this.options = $.extend( {}, defaultOptions, options );
 
 		Read.enforceSingleton(this);
 
 		// Configured
-		this.setWPM(speed || 300);
+		this.setWPM(this.options.wpm);
 		this.setBlock(block);
-		this.setElement(element);
+		this.setElement(this.options.element);
 	}
 
 	Read.enforceSingleton = function (inst) {
@@ -279,12 +292,12 @@
 		}
 
 		// bind new binds
-		this.element = $(ele);
+		this.options.element = $(ele);
 		this.parentElement.animate( { "padding-top": "+=50" }, 400);
-		this.parentElement.prepend(this.element);
-		this.element.slideDown();
-		this.displayElement = this.element.find('.__read_display');
-		this.speedElement = this.element.find('.__read_speed');
+		this.parentElement.prepend(this.options.element);
+		this.options.element.slideDown();
+		this.displayElement = this.options.element.find('.__read_display');
+		this.speedElement = this.options.element.find('.__read_speed');
 		this.displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
 		this.speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this.speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
@@ -305,7 +318,7 @@
 				this.restart();
 				this.isEnded = false;
 			}
-			this.slowStartCount = 5;
+			this.options.slowStartCount = 5;
 			this.display();
 			this.isPlaying = true;
 		}
@@ -320,17 +333,24 @@
 		this.currentWord = this.block.getWord();
 		if (this.currentWord) {
 			this.showWord();
-			var time = this.delay * this.currentWord.timeMultiplier;
-			if (this.slowStartCount) {
-				time = time * this.slowStartCount;
-				this.slowStartCount --;
+
+			var time = this.delay;
+
+			if ( this.currentWord.hasPeriod ) time *= this.options.sentenceDelay;
+			if ( this.currentWord.hasOtherPunc ) time *= this.options.otherPuncDelay;
+			if ( this.currentWord.isShort ) time *= this.options.shortWordDelay;
+			if ( this.currentWord.isLong ) time *= this.options.longWordDelay;
+
+			if (this.options.slowStartCount) {
+				time = time * this.options.slowStartCount;
+				this.options.slowStartCount --;
 			}
 			this.timer = setTimeout($.proxy(this.next, this),time);
 		} else {
 			this.clearDisplay();
 			this.isPlaying = false;
 			this.isEnded = true;
-			this.element.attr('data-progrecss', 100 );
+			this.options.element.attr('data-progrecss', 100 );
 		}
 	};
 
@@ -342,8 +362,8 @@
 			var letter = word.substr(this.currentWord.index, 1);
 
 			// fake elements
-			var $before = this.element.find('.__read_before').html(before).css("opacity","0");
-			var $letter = this.element.find('.__read_letter').html(letter).css("opacity","0");
+			var $before = this.options.element.find('.__read_before').html(before).css("opacity","0");
+			var $letter = this.options.element.find('.__read_letter').html(letter).css("opacity","0");
 
 			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
 
@@ -355,8 +375,8 @@
 			this.speedElement.val(this._wpm);
 		}
 
-		if (this.element && this.block) {
-			this.element.attr('data-progrecss', parseInt(this.block.getProgress() * 100, 10) );
+		if (this.options.element && this.block) {
+			this.options.element.attr('data-progrecss', parseInt(this.block.getProgress() * 100, 10) );
 		}
 	};
 
