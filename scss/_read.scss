@@ -36,10 +36,15 @@
 		.__read_display {
 			position: absolute;
 			@include box-sizing(border-box);
-			padding: 10px 10px 10px 210px;
+			padding: 10px 10px 10px 221px;
 			width: 300px;
 			font-family: 'Droid Serif', serif;
 			font-size: 30px;
+		}
+		.__read_before,
+		.__read_letter {
+			@extend .__read_display;
+			padding: 0;
 		}
 	}
 

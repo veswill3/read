@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-04####
 
+ * updated css (`James Tomasino`)
  * updating gitignore to avoid all these damn collisions (`James Tomasino`)
  * updated css and js (`James Tomasino`)
  * moved speed change box to left for better display on small screens (`James Tomasino`)

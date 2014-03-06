@@ -2,20 +2,24 @@
 	"use strict";
 
 	var textRegex = /\w/g;
-	var Word = function ( val ) {
+	var ReadWord = function ( val ) {
 		this.val = val;
 
+		// Center value for alignment
 		this.index = 0;
-		this.timeMultiplier = 1;
+
+		// ReadWord Status Values
 		this.hasLeadingQuote = false;
 		this.hasTrailingQuote = false;
 		this.hasPeriod = false;
 		this.hasOtherPunc = false;
+		this.isShort = false;
+		this.isLong = false;
 
 		this.process();
 	};
 
-	var p = Word.prototype;
+	var p = ReadWord.prototype;
 
 	p.process = function () {
 
@@ -42,14 +46,12 @@
 			case "!":
 			case "?":
 				this.hasPeriod = true;
-				this.timeMultiplier = 2.5;
 				break;
 			case ":":
 			case ";":
 			case ",":
 			case "-":
 				this.hasOtherPunc = true;
-				this.timeMultiplier = 1.5;
 				break;
 		}
 
@@ -57,13 +59,13 @@
 			case 0:
 			case 1:
 				this.index = 0;
-				this.timeMultiplier += 0.1;
+				this.isShort = true;
 				break;
 			case 2:
 			case 3:
 			case 4:
-				this.timeMultiplier += 0.2;
 				this.index = 1;
+				this.isShort = true;
 				break;
 			case 5:
 			case 6:
@@ -77,11 +79,11 @@
 			case 12:
 			case 13:
 				this.index = 3;
-				this.timeMultiplier += 0.2;
+				this.isLong = true;
 				break;
 			default:
 				this.index = 4;
-				this.timeMultiplier += 0.4;
+				this.isLong = true;
 				break;
 		}
 
@@ -92,7 +94,7 @@
 
 	};
 
-	window.ReadWord = Word;
+	window.ReadWord = ReadWord;
 
 }(window) );
 
@@ -113,7 +115,7 @@
 	var vccv = new RegExp('('+v+c+')('+c+v+')', 'g');
 	var simple = new RegExp('(.{2,4}'+v+')'+'('+c+')', 'g');
 
-	var Block = function ( val ) {
+	var ReadBlock = function ( val ) {
 		this.val = val;
 
 		this.words = [];
@@ -122,7 +124,7 @@
 		this.process();
 	};
 
-	var p = Block.prototype;
+	var p = ReadBlock.prototype;
 
 	p.process = function () {
 		// Cleanup
@@ -188,9 +190,10 @@
 		return this.index / this.words.length;
 	};
 
-	window.ReadBlock = Block;
+	window.ReadBlock = ReadBlock;
 
 }(window) );
+
 
 
 ( function ( window, $ ){
@@ -210,26 +213,37 @@
 		return width;
 	};
 
-	function Read ( block, element, speed ) {
+	var defaultOptions = {
+		element: null,
+		wpm: 300,
+		slowStartCount: 5,
+		sentenceDelay: 2.5,
+		otherPuncDelay: 1.5,
+		shortWordDelay: 1.3,
+		longWordDelay: 1.4
+	};
+
+
+	function Read ( block, options ) { //element, wpm ) {
 
 		// Defaults
-		this.parentElement = null;
-		this.element = null;
-		this.displayElement = null;
-		this.speedElement = null;
-		this.currentWord = null;
-		this.delay = 0;
-		this.timer = null;
-		this.slowStartCount = 5;
-		this.isPlaying = false;
-		this.isEnded = false;
+		this._parentElement = null;
+		this._displayElement = null;
+		this._speedElement = null;
+		this._currentWord = null;
+		this._delay = 0;
+		this._timer = null;
+		this._isPlaying = false;
+		this._isEnded = false;
+
+		this._options = $.extend( {}, defaultOptions, options );
 
 		Read.enforceSingleton(this);
 
 		// Configured
-		this.setWPM(speed || 300);
-		this.setBlock(block);
-		this.setElement(element);
+		this.setWPM(this._options.wpm);
+		this.setText(block);
+		this.setElement(this._options.element);
 	}
 
 	Read.enforceSingleton = function (inst) {
@@ -242,19 +256,70 @@
 
 	var p = Read.prototype;
 
-	p.destroy = function () {
-		p.pause();
-		this.speedElement.off ( "blur" );
-		this.speedElement.off ( "keydown" );
-		this.parentElement.find('.__read').remove();
-		this.parentElement.css( "padding-top", "-=50" );
+	p._display = function () {
+		this._currentWord = this._block.getWord();
+		if (this._currentWord) {
+			this._showWord();
+
+			var time = this._delay;
+
+			if ( this._currentWord.hasPeriod ) time *= this._options.sentenceDelay;
+			if ( this._currentWord.hasOtherPunc ) time *= this._options.otherPuncDelay;
+			if ( this._currentWord.isShort ) time *= this._options.shortWordDelay;
+			if ( this._currentWord.isLong ) time *= this._options.longWordDelay;
+
+			if (this._options.slowStartCount) {
+				time = time * this._options.slowStartCount;
+				this._options.slowStartCount --;
+			}
+			this._timer = setTimeout($.proxy(this.next, this),time);
+		} else {
+			this.clearDisplay();
+			this._isPlaying = false;
+			this._isEnded = true;
+			this._options.element.attr('data-progrecss', 100 );
+		}
 	};
 
-	p.setBlock = function (val) {
+	p._showWord = function () {
+		if (this._displayElement) {
+			var word = this._currentWord.val;
+
+			var before = word.substr(0, this._currentWord.index);
+			var letter = word.substr(this._currentWord.index, 1);
+
+			// fake elements
+			var $before = this._options.element.find('.__read_before').html(before).css("opacity","0");
+			var $letter = this._options.element.find('.__read_letter').html(letter).css("opacity","0");
+
+			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
+
+			this._displayElement.html(this._currentWord.val);
+			this._displayElement.css("margin-left", -calc);
+		}
+
+		if (this._speedElement && !this._speedElement.is(":focus")) {
+			this._speedElement.val(this._wpm);
+		}
+
+		if (this._options.element && this._block) {
+			this._options.element.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
+		}
+	};
+
+	p.destroy = function () {
+		p.pause();
+		this._speedElement.off ( "blur" );
+		this._speedElement.off ( "keydown" );
+		this._parentElement.find('.__read').remove();
+		this._parentElement.css( "padding-top", "-=50" );
+	};
+
+	p.setText = function (val) {
 		if (val) {
 			this.pause();
 			this.restart();
-			this.block = new ReadBlock(val);
+			this._block = new ReadBlock(val);
 			this.clearDisplay();
 		}
 	};
@@ -267,32 +332,32 @@
 		this.clearDisplay();
 
 		// unbind old binds
-		if (this.parentElement) {
-			this.parentElement.find('.__read').remove();
-			this.parentElement.css( "padding-top", "-=50" );
+		if (this._parentElement) {
+			this._parentElement.find('.__read').remove();
+			this._parentElement.css( "padding-top", "-=50" );
 		}
 
 		if (val instanceof $) {
-			this.parentElement = val;
+			this._parentElement = val;
 		} else {
-			this.parentElement = $(val);
+			this._parentElement = $(val);
 		}
 
 		// bind new binds
-		this.element = $(ele);
-		this.parentElement.animate( { "padding-top": "+=50" }, 400);
-		this.parentElement.prepend(this.element);
-		this.element.slideDown();
-		this.displayElement = this.element.find('.__read_display');
-		this.speedElement = this.element.find('.__read_speed');
-		this.displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
-		this.speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
-		this.speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
+		this._options.element = $(ele);
+		this._parentElement.animate( { "padding-top": "+=50" }, 400);
+		this._parentElement.prepend(this._options.element);
+		this._options.element.slideDown();
+		this._displayElement = this._options.element.find('.__read_display');
+		this._speedElement = this._options.element.find('.__read_speed');
+		this._displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
+		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 
 	};
 
 	p.playPauseToggle = function () {
-		if (this.isPlaying) {
+		if (this._isPlaying) {
 			this.pause();
 		} else {
 			this.play();
@@ -300,86 +365,80 @@
 	};
 
 	p.play = function () {
-		if (this.block) {
-			if (this.isEnded) {
+		if (this._block) {
+			if (this._isEnded) {
 				this.restart();
-				this.isEnded = false;
+				this._isEnded = false;
 			}
-			this.slowStartCount = 5;
-			this.display();
-			this.isPlaying = true;
+			this._options.slowStartCount = 5;
+			this._display();
+			this._isPlaying = true;
 		}
 	};
 
 	p.next = function() {
-		this.block.next();
-		this.display();
-	};
-
-	p.display = function () {
-		this.currentWord = this.block.getWord();
-		if (this.currentWord) {
-			this.showWord();
-			var time = this.delay * this.currentWord.timeMultiplier;
-			if (this.slowStartCount) {
-				time = time * this.slowStartCount;
-				this.slowStartCount --;
-			}
-			this.timer = setTimeout($.proxy(this.next, this),time);
-		} else {
-			this.clearDisplay();
-			this.isPlaying = false;
-			this.isEnded = true;
-			this.element.attr('data-progrecss', 100 );
-		}
-	};
-
-	p.showWord = function () {
-		if (this.displayElement) {
-			var word = this.currentWord.val;
-
-			var before = word.substr(0, this.currentWord.index);
-			var letter = word.substr(this.currentWord.index, 1);
-
-			// fake elements
-			var $before = this.element.find('.__read_before').html(before).css("opacity","0");
-			var $letter = this.element.find('.__read_letter').html(letter).css("opacity","0");
-
-			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
-
-			this.displayElement.html(this.currentWord.val);
-			this.displayElement.css("margin-left", -calc);
-		}
-
-		if (this.speedElement && !this.speedElement.is(":focus")) {
-			this.speedElement.val(this._wpm);
-		}
-
-		if (this.element && this.block) {
-			this.element.attr('data-progrecss', parseInt(this.block.getProgress() * 100, 10) );
-		}
+		this._block.next();
+		this._display();
 	};
 
 	p.clearDisplay = function () {
-		if (this.displayElement) this.displayElement.html("");
+		if (this._displayElement) this._displayElement.html("");
 	};
 
 	p.pause = function () {
-		clearTimeout(this.timer);
-		this.isPlaying = false;
+		clearTimeout(this._timer);
+		this._isPlaying = false;
 	};
 
 	p.restart = function () {
-		if (this.block) this.block.restart();
+		if (this._block) this._block.restart();
 	};
 
 	p.setWPM = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (1500, val);
 		this._wpm = val;
-		this.delay = 1/(val/60)*1000;
+		this._delay = 1/(val/60)*1000;
+	};
+
+	p.setSentenceDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.sentenceDelay = val;
+	};
+
+	p.setOtherPuncDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.otherPuncDelay = val;
+	};
+
+	p.setShortWordDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.shortWordDelay = val;
+	};
+
+	p.setLongWordDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.longWordDelay = val;
+	};
+
+	p.setSlowStartCount = function ( val ) {
+		val = Number(val);
+		val = Math.max(0,val);
+		val = Math.min(10,val);
+		this._options.slowStartCount = val;
 	};
 
 	p.updateWPMFromUI = function () {
-		var newWPM = this.speedElement.val();
+		var newWPM = this._speedElement.val();
 		newWPM = newWPM.match(/[\d]+/g);
 		newWPM = parseInt(newWPM, 10);
 		this.setWPM(newWPM);
@@ -389,6 +448,8 @@
 
 }(window, jQuery) );
 
+//= require ./ReadWord
+//= require ./ReadBlock
 //= require ./Read
 
 var r;
@@ -399,7 +460,7 @@ $(function() {
 
 	$('#txt').on('blur', function () {
 		if (this.value) {
-			r.setBlock ( this.value );
+			r.setText ( this.value );
 			r.play();
 		}
 	});
