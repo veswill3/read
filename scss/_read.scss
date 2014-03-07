@@ -7,57 +7,126 @@
 	height: 50px;
 	padding: 0;
 	margin: 0;
-	overflow: hidden;
-	@include background-image(linear-gradient(top, white 60%, #EEE));
 	z-index: 999999;
 	cursor: pointer;
 	color: #000;
+	-webkit-transition:all ease-in-out 0.4s;
+    transition:all ease-in-out 0.4s;
+	&.open { height: 200px; }
 
-	.__read_position {
-
-		position: relative;
-		@include box-sizing(border-box);
-		width: 500px;
+	.__read_bar {
+		width: 100%;
 		height: 50px;
-		margin: 0 auto;
+		@include background-image(linear-gradient(top, white 60%, #EEE));
+		overflow: hidden;
 
-		.__read_indicator {
-			position: absolute;
+		.__read_position {
+
+			position: relative;
 			@include box-sizing(border-box);
-			display: block;
-			width: 2px;
-			height: 40px;
-			top: 5px;
-			left: 220px;
-			background-color: rgba(150,150,150,.2);
+			width: 500px;
+			height: 50px;
+			margin: 0 auto;
+
+			.__read_indicator {
+				position: absolute;
+				@include box-sizing(border-box);
+				display: block;
+				width: 2px;
+				height: 40px;
+				top: 5px;
+				left: 220px;
+				background-color: rgba(150,150,150,.2);
+			}
+
+			.__read_display {
+				position: absolute;
+				@include box-sizing(border-box);
+				padding: 10px 10px 10px 221px;
+				width: 300px;
+				font-family: 'Droid Serif', serif;
+				font-size: 30px;
+			}
+
+			.__read_before,
+			.__read_letter {
+				@extend .__read_display;
+				padding: 0;
+			}
 		}
 
-
-		.__read_display {
+		.__read_config {
 			position: absolute;
-			@include box-sizing(border-box);
-			padding: 10px 10px 10px 221px;
-			width: 300px;
-			font-family: 'Droid Serif', serif;
-			font-size: 30px;
+			top: 3px;
+			left: 8px;
+			width: 30px;
+			height: 47px;
+			background: url(../images/settings-icon.png) no-repeat 0 0;
+			opacity: 0.1;
+			&.active, &:hover { opacity: 0.4; }
 		}
-		.__read_before,
-		.__read_letter {
-			@extend .__read_display;
-			padding: 0;
+
+		.__read_restart {
+			position: absolute;
+			top: 3px;
+			left: 38px;
+			width: 50px;
+			height: 47px;
+			background: url(../images/restart-icon.png) no-repeat 0 0;
+			opacity: 0.1;
+			&.active, &:hover { opacity: 0.4; }
+		}
+
+		.__read_close_read {
+			position: absolute;
+			top: 3px;
+			right: 0;
+			width: 50px;
+			height: 47px;
+			background: url(../images/close-icon.png) no-repeat 0 0;
+			opacity: 0.1;
+			&:hover { opacity: 0.4; }
 		}
 	}
 
-	.__read_speed {
-		display: block;
+	.__read_settings {
 		position: absolute;
-		@include box-sizing(border-box);
-		top: 0;
-		left: 10px;
-		text-align: center;
-		margin: 10px;
-		width: 100px;
-		font-family: 'Droid Serif', serif;
-		font-size: 24px;
+		top: 50px;
+		width: 100%;
+		height: 150px;
+		background-color: #c6d6dc;
+		z-index: 10;
+		.__read_speed {
+			display: block;
+			position: absolute;
+			@include box-sizing(border-box);
+			top: 0;
+			left: 10px;
+			text-align: center;
+			margin: 10px;
+			width: 100px;
+			font-family: 'Droid Serif', serif;
+			font-size: 24px;
+		}
+		.__read_speed_slider {
+			display: block;
+			position: absolute;
+			@include box-sizing(border-box);
+			top: 18px;
+			left: 135px;
+			width: 350px;
+			height: 18px;
+		}
+		.__read_close_settings {
+			position: absolute;
+			top: 3px;
+			right: 0;
+			width: 50px;
+			height: 47px;
+			background: url(../images/close-settings-icon.png) no-repeat 0 0;
+			opacity: 0.7;
+			&:hover { opacity: 1; }
+		}
 	}
+
 }

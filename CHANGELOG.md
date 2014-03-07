@@ -2,6 +2,7 @@
 
 ####2014-03-06####
 
+ * __typo fix__ (`James Tomasino`)
  * __removed whitespace__ (`James Tomasino`)
  * __fixed alignment of focal letter__ (`Eric Emmons`)
  * __split library into seperate files for easier dev__ (`James Tomasino`)

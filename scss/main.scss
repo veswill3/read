@@ -2,9 +2,10 @@
 @import "compass";
 @import "compass/reset";
 @import "progrecss";
+@import "nouislider";
 @import "read";
 
-.wrapper { 
+.wrapper {
 	position: relative;
 	@include box-sizing(border-box);
 	width: 500px;

@@ -197,7 +197,25 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="__read __progrecss"><div class="__read_position"><div class="__read_indicator"></div><div class="__read_display"></div><div class="__read_before"></div><div class="__read_letter"></div></div><input class="__read_speed" type="text" /></div>';
+	/*jshint multistr: true */
+	var ele = '<div class="__read __progrecss">\
+			<div class="__read_bar">\
+				<div class="__read_position">\
+					<div class="__read_indicator"></div>\
+					<div class="__read_display"></div>\
+					<div class="__read_before"></div>\
+					<div class="__read_letter"></div>\
+				</div>\
+				<div class="__read_config"></div>\
+				<div class="__read_restart"></div>\
+				<div class="__read_close_read"></div>\
+			</div>\
+			<div class="__read_settings">\
+				<input class="__read_speed" type="text"/>\
+				<div class="__read_speed_slider"></div>\
+				<div class="__read_close_settings"></div>\
+			</div>\
+		</div>';
 
 	$.fn.textWidth = function(){
 		var self = $(this),
@@ -226,8 +244,15 @@
 
 		// Defaults
 		this._parentElement = null;
+		this._barElement = null;
+		this._settingsElement = null;
+		this._closeSettingsElement = null;
+		this._configElement = null;
+		this._restartElement = null;
 		this._displayElement = null;
+		this._closeElement = null;
 		this._speedElement = null;
+		this._readSliderElement = null;
 		this._currentWord = null;
 		this._delay = 0;
 		this._timer = null;
@@ -296,13 +321,38 @@
 			this._displayElement.css("margin-left", -calc);
 		}
 
-		if (this._speedElement && !this._speedElement.is(":focus")) {
-			this._speedElement.val(this._wpm);
-		}
-
 		if (this._options.element && this._block) {
 			this._options.element.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
 		}
+	};
+
+	p._initSettings = function () {
+		this._speedSliderElement.noUiSlider({
+			range: [300,1200],
+			start: 300,
+			step: 25,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._speedElement ],
+				resolution: 1
+			},
+			set: $.proxy( function() {
+				console.log(this._speedElement.val());
+				this.setWPM( this._speedElement.val() );
+			},this )
+		});
+	};
+
+	p.showSettings = function () {
+		console.log(open);
+		this._options.element.addClass('open');
+		this._configElement.addClass('active');
+	};
+
+	p.hideSettings = function () {
+		this._options.element.removeClass('open');
+		this._configElement.removeClass('active');
 	};
 
 	p.destroy = function () {
@@ -318,7 +368,7 @@
 			this.pause();
 			this.restart();
 			this._block = new ReadBlock(val);
-			this.clearDisplay();
+
 		}
 	};
 
@@ -351,13 +401,34 @@
 		this._parentElement.animate( { "padding-top": "+=50" }, 400);
 		this._parentElement.prepend(this._options.element);
 		this._options.element.slideDown();
+
+		this._barElement = this._options.element.find('.__read_bar');
+
+		this._settingsElement = this._options.element.find('.__read_settings');
+
+		this._closeSettingsElement = this._options.element.find('.__read_close_settings');
+		this._closeSettingsElement.on ( "touchend click", $.proxy(this.hideSettings, this) );
+
+		this._configElement = this._options.element.find('.__read_config');
+		this._configElement.on ( "touchend click", $.proxy(this.showSettings, this) );
+
+		this._restartElement = this._options.element.find('.__read_restart');
+		this._restartElement.on ( "touchend click", $.proxy(this.restart, this) );
+
 		this._displayElement = this._options.element.find('.__read_display');
-		this._speedElement = this._options.element.find('.__read_speed');
 		this._displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+
+		this._closeElement = this._options.element.find('.__read_close_read');
+		this._closeElement.on ( "touchend click", $.proxy(this.destroy, this) );
+
+		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
+		this._speedSliderElement = this._options.element.find('.__read_speed_slider');
 
+		this._initSettings();
 	};
+
 
 	p.playPauseToggle = function () {
 		if (this._isPlaying) {
@@ -389,7 +460,10 @@
 	};
 
 	p.restart = function () {
-		if (this._block) this._block.restart();
+		if (this._block) {
+			this._block.restart();
+			this._showWord();
+		}
 	};
 
 	p.setWPM = function ( val ) {
