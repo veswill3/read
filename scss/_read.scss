@@ -12,7 +12,7 @@
 	color: #000;
 	-webkit-transition:all ease-in-out 0.4s;
     transition:all ease-in-out 0.4s;
-	&.open { height: 200px; }
+	&.open { height: 250px; }
 
 	.__read_bar {
 		width: 100%;
@@ -93,30 +93,57 @@
 		position: absolute;
 		top: 50px;
 		width: 100%;
-		height: 150px;
+		height: 200px;
 		background-color: #c6d6dc;
 		z-index: 10;
-		.__read_speed {
+
+
+		.__read_setting_common {
 			display: block;
 			position: absolute;
 			@include box-sizing(border-box);
-			top: 0;
-			left: 10px;
-			text-align: center;
-			margin: 10px;
-			width: 100px;
 			font-family: 'Droid Serif', serif;
-			font-size: 24px;
+			font-size: 14px;
 		}
-		.__read_speed_slider {
-			display: block;
-			position: absolute;
-			@include box-sizing(border-box);
-			top: 18px;
-			left: 135px;
-			width: 350px;
-			height: 18px;
+
+		.__read_setting {
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 80px;
+			&.__read_wpm {
+				@extend .__read_setting_common;
+				top: 10px;
+				left: 10px;
+			}
+			&.__read_slowstart {
+				@extend .__read_setting_common;
+				top: 80px;
+				left: 10px;
+			}
+			label {
+				@extend .__read_setting_common;
+				left: 10px;
+			}
+			input {
+				@extend .__read_setting_common;
+				top: 20px;
+				left: 10px;
+				text-align: center;
+				width: 100px;
+				height: 40px;
+				font-size: 24px;
+				margin: 0;
+			}
+			.__read_slider {
+				@extend .__read_setting_common;
+				top: 32px;
+				left: 125px;
+				width: 350px;
+				height: 18px;
+			}
 		}
+
 		.__read_close_settings {
 			position: absolute;
 			top: 3px;

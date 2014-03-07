@@ -2484,7 +2484,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 /* line 15, ../scss/_read.scss */
 .__read.open {
-  height: 200px;
+  height: 250px;
 }
 /* line 17, ../scss/_read.scss */
 .__read .__read_bar {
@@ -2584,38 +2584,59 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   position: absolute;
   top: 50px;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background-color: #c6d6dc;
   z-index: 10;
 }
-/* line 99, ../scss/_read.scss */
-.__read .__read_settings .__read_speed {
+/* line 101, ../scss/_read.scss */
+.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: "Droid Serif", serif;
+  font-size: 14px;
+}
+/* line 109, ../scss/_read.scss */
+.__read .__read_settings .__read_setting {
   top: 0;
+  left: 0;
+  width: 200px;
+  height: 80px;
+}
+/* line 114, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_wpm {
+  top: 10px;
+  left: 10px;
+}
+/* line 119, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_slowstart {
+  top: 80px;
+  left: 10px;
+}
+/* line 124, ../scss/_read.scss */
+.__read .__read_settings .__read_setting label {
+  left: 10px;
+}
+/* line 128, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input {
+  top: 20px;
   left: 10px;
   text-align: center;
-  margin: 10px;
   width: 100px;
-  font-family: "Droid Serif", serif;
+  height: 40px;
   font-size: 24px;
+  margin: 0;
 }
-/* line 111, ../scss/_read.scss */
-.__read .__read_settings .__read_speed_slider {
-  display: block;
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  top: 18px;
-  left: 135px;
+/* line 138, ../scss/_read.scss */
+.__read .__read_settings .__read_setting .__read_slider {
+  top: 32px;
+  left: 125px;
   width: 350px;
   height: 18px;
 }
-/* line 120, ../scss/_read.scss */
+/* line 147, ../scss/_read.scss */
 .__read .__read_settings .__read_close_settings {
   position: absolute;
   top: 3px;
@@ -2625,7 +2646,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background: url(../images/close-settings-icon.png) no-repeat 0 0;
   opacity: 0.7;
 }
-/* line 128, ../scss/_read.scss */
+/* line 155, ../scss/_read.scss */
 .__read .__read_settings .__read_close_settings:hover {
   opacity: 1;
 }

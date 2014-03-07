@@ -211,8 +211,16 @@
 				<div class="__read_close_read"></div>\
 			</div>\
 			<div class="__read_settings">\
-				<input class="__read_speed" type="text"/>\
-				<div class="__read_speed_slider"></div>\
+				<div class="__read_setting __read_wpm">\
+					<label>Words Per Minute</label>\
+					<input class="__read_speed" type="text"/>\
+					<div class="__read_slider __read_speed_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_slowstart">\
+					<label>Slow Start Speed</label>\
+					<input class="__read_slow_start" type="text"/>\
+					<div class="__read_slider __read_slow_start_slider"></div>\
+				</div>\
 				<div class="__read_close_settings"></div>\
 			</div>\
 		</div>';
@@ -251,8 +259,13 @@
 		this._restartElement = null;
 		this._displayElement = null;
 		this._closeElement = null;
+
 		this._speedElement = null;
-		this._readSliderElement = null;
+		this._speedSliderElement = null;
+
+		this._slowStartElement = null;
+		this._slowStartSliderElement = null;
+
 		this._currentWord = null;
 		this._delay = 0;
 		this._timer = null;
@@ -338,10 +351,25 @@
 				resolution: 1
 			},
 			set: $.proxy( function() {
-				console.log(this._speedElement.val());
 				this.setWPM( this._speedElement.val() );
 			},this )
 		});
+
+		this._slowStartSliderElement.noUiSlider({
+			range: [0,5],
+			start: defaultOptions.slowStartCount,
+			step: 1,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._slowStartElement ],
+				resolution: 1
+			},
+			set: $.proxy( function() {
+				this.setSlowStartCount( this._slowStartElement.val() );
+			},this )
+		});
+
 	};
 
 	p.showSettings = function () {
@@ -420,6 +448,9 @@
 
 		this._closeElement = this._options.element.find('.__read_close_read');
 		this._closeElement.on ( "touchend click", $.proxy(this.destroy, this) );
+
+		this._slowStartElement = this._options.element.find('.__read_slow_start');
+		this._slowStartSliderElement = this._options.element.find('.__read_slow_start_slider');
 
 		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );

@@ -1,5 +1,9 @@
 ## COMMIT LOG ##
 
+####2014-03-07####
+
+ * __added close button. added slide down setting container. speed can be adjusted by slider on the fly. added restart button.__ (`Eric Emmons`)
+
 ####2014-03-06####
 
  * __typo fix__ (`James Tomasino`)
