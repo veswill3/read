@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-07####
 
+ * __restructured setting markup. added slow start speed slider__ (`Eric Emmons`)
  * __added close button. added slide down setting container. speed can be adjusted by slider on the fly. added restart button.__ (`Eric Emmons`)
 
 ####2014-03-06####

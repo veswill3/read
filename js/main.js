@@ -475,7 +475,6 @@
 				this.restart();
 				this._isEnded = false;
 			}
-			this._options.slowStartCount = 5;
 			this._display();
 			this._isPlaying = true;
 		}
