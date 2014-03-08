@@ -1,4 +1,4 @@
-/* line 17, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.rvm/gems/ruby-1.9.3-p385/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -2374,8 +2374,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /* line 98, ../scss/_nouislider.scss */
 .noUi-target {
   border-radius: 4px;
-  border: 1px solid lightgrey;
-  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
+  border: 1px solid #D3D3D3;
+  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
 }
 
 /* line 103, ../scss/_nouislider.scss */
@@ -2397,16 +2397,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 /* line 115, ../scss/_nouislider.scss */
 .noUi-handle {
-  border: 1px solid #d9d9d9;
+  border: 1px solid #D9D9D9;
   border-radius: 3px;
   background: #FFF;
   cursor: default;
-  box-shadow: inset 0 0 1px white, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbbbbb;
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
 }
 
 /* line 124, ../scss/_nouislider.scss */
 .noUi-active {
-  box-shadow: inset 0 0 1px white, inset 0 1px 7px #dddddd, 0 3px 6px -3px #bbbbbb;
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
 }
 
 /* Handle stripes;
@@ -2484,7 +2484,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 /* line 15, ../scss/_read.scss */
 .__read.open {
-  height: 250px;
+  height: 300px;
 }
 /* line 17, ../scss/_read.scss */
 .__read .__read_bar {
@@ -2529,7 +2529,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   padding: 10px 10px 10px 221px;
   width: 300px;
-  font-family: "Droid Serif", serif;
+  font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
 /* line 52, ../scss/_read.scss */
@@ -2584,18 +2584,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   position: absolute;
   top: 50px;
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-color: #c6d6dc;
   z-index: 10;
 }
 /* line 101, ../scss/_read.scss */
-.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
+.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Droid Serif", serif;
+  font-family: 'Droid Serif', serif;
   font-size: 14px;
 }
 /* line 109, ../scss/_read.scss */
@@ -2612,14 +2612,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 /* line 119, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
-  top: 80px;
+  top: 90px;
   left: 10px;
 }
 /* line 124, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_sentencedelay {
+  top: 170px;
+  left: 10px;
+}
+/* line 129, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 128, ../scss/_read.scss */
+/* line 133, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2629,14 +2634,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 138, ../scss/_read.scss */
+/* line 143, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
   width: 350px;
   height: 18px;
 }
-/* line 147, ../scss/_read.scss */
+/* line 152, ../scss/_read.scss */
 .__read .__read_settings .__read_close_settings {
   position: absolute;
   top: 3px;
@@ -2646,7 +2651,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background: url(../images/close-settings-icon.png) no-repeat 0 0;
   opacity: 0.7;
 }
-/* line 155, ../scss/_read.scss */
+/* line 160, ../scss/_read.scss */
 .__read .__read_settings .__read_close_settings:hover {
   opacity: 1;
 }
@@ -2675,7 +2680,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Droid Serif", serif;
+  font-family: 'Droid Serif', serif;
   font-size: 12px;
   width: 500px;
   height: 300px;

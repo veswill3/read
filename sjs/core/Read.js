@@ -25,6 +25,11 @@
 					<input class="__read_slow_start" type="text"/>\
 					<div class="__read_slider __read_slow_start_slider"></div>\
 				</div>\
+				<div class="__read_setting __read_sentencedelay">\
+					<label>Sentence Delay</label>\
+					<input class="__read_sentence_delay" type="text"/>\
+					<div class="__read_slider __read_sentence_delay_slider"></div>\
+				</div>\
 				<div class="__read_close_settings"></div>\
 			</div>\
 		</div>';
@@ -69,6 +74,9 @@
 
 		this._slowStartElement = null;
 		this._slowStartSliderElement = null;
+
+		this._sentenceDelayElement = null;
+		this._sentenceDelaySliderElement = null;
 
 		this._currentWord = null;
 		this._delay = 0;
@@ -144,6 +152,8 @@
 	};
 
 	p._initSettings = function () {
+
+		// WPM
 		this._speedSliderElement.noUiSlider({
 			range: [300,1200],
 			start: 300,
@@ -159,6 +169,7 @@
 			},this )
 		});
 
+		// Slow Start
 		this._slowStartSliderElement.noUiSlider({
 			range: [0,5],
 			start: defaultOptions.slowStartCount,
@@ -171,6 +182,22 @@
 			},
 			set: $.proxy( function() {
 				this.setSlowStartCount( this._slowStartElement.val() );
+			},this )
+		});
+
+		// Sentence Delay
+		this._sentenceDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: defaultOptions.sentenceDelay,
+			step: 0.1,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._sentenceDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setSentenceDelay( this._sentenceDelayElement.val() );
 			},this )
 		});
 
@@ -255,6 +282,9 @@
 
 		this._slowStartElement = this._options.element.find('.__read_slow_start');
 		this._slowStartSliderElement = this._options.element.find('.__read_slow_start_slider');
+
+		this._sentenceDelayElement = this._options.element.find('.__read_sentence_delay');
+		this._sentenceDelaySliderElement = this._options.element.find('.__read_sentence_delay_slider');
 
 		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
