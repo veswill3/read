@@ -352,7 +352,7 @@
 		// WPM
 		this._speedSliderElement.noUiSlider({
 			range: [300,1200],
-			start: 300,
+			start: this._options.wpm,
 			step: 25,
 			handles: 1,
 			behaviour: 'extend-tap',
@@ -368,7 +368,7 @@
 		// Slow Start
 		this._slowStartSliderElement.noUiSlider({
 			range: [0,5],
-			start: defaultOptions.slowStartCount,
+			start: this._options.slowStartCount,
 			step: 1,
 			handles: 1,
 			behaviour: 'extend-tap',
@@ -384,7 +384,7 @@
 		// Sentence Delay
 		this._sentenceDelaySliderElement.noUiSlider({
 			range: [0,5],
-			start: defaultOptions.sentenceDelay,
+			start: this._options.sentenceDelay,
 			step: 0.1,
 			handles: 1,
 			behaviour: 'extend-tap',
@@ -493,7 +493,6 @@
 
 		this._initSettings();
 	};
-
 
 	p.playPauseToggle = function () {
 		if (this._isPlaying) {
