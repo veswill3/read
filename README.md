@@ -39,6 +39,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-09####
+
+ * __better restart and display__ (`James Tomasino`)
+
 ####2014-03-07####
 
  * __removed forced set of slow read speed on play__ (`Eric Emmons`)
