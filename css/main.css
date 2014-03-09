@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -2544,42 +2544,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 8px;
   width: 30px;
   height: 47px;
-  background: url(../images/settings-icon.png) no-repeat 0 0;
+  padding: 5px;
+  font-size: 36px;
   opacity: 0.1;
 }
-/* line 66, ../scss/_read.scss */
+/* line 67, ../scss/_read.scss */
 .__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
   opacity: 0.4;
 }
-/* line 69, ../scss/_read.scss */
+/* line 70, ../scss/_read.scss */
 .__read .__read_bar .__read_restart {
   position: absolute;
   top: 3px;
   left: 38px;
   width: 50px;
   height: 47px;
-  background: url(../images/restart-icon.png) no-repeat 0 0;
+  padding: 9px;
+  font-size: 30px;
   opacity: 0.1;
 }
-/* line 77, ../scss/_read.scss */
+/* line 79, ../scss/_read.scss */
 .__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
   opacity: 0.4;
 }
-/* line 80, ../scss/_read.scss */
+/* line 82, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read {
   position: absolute;
-  top: 3px;
+  top: 0;
   right: 0;
-  width: 50px;
+  width: 30px;
   height: 47px;
-  background: url(../images/close-icon.png) no-repeat 0 0;
+  padding: 9px;
+  font-size: 30px;
   opacity: 0.1;
 }
-/* line 88, ../scss/_read.scss */
+/* line 91, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read:hover {
   opacity: 0.4;
 }
-/* line 92, ../scss/_read.scss */
+/* line 95, ../scss/_read.scss */
 .__read .__read_settings {
   position: absolute;
   top: 50px;
@@ -2588,7 +2591,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #c6d6dc;
   z-index: 10;
 }
-/* line 101, ../scss/_read.scss */
+/* line 104, ../scss/_read.scss */
 .__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
@@ -2598,33 +2601,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'Droid Serif', serif;
   font-size: 14px;
 }
-/* line 109, ../scss/_read.scss */
+/* line 112, ../scss/_read.scss */
 .__read .__read_settings .__read_setting {
   top: 0;
   left: 0;
   width: 200px;
   height: 80px;
 }
-/* line 114, ../scss/_read.scss */
+/* line 117, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_wpm {
   top: 10px;
   left: 10px;
 }
-/* line 119, ../scss/_read.scss */
+/* line 122, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
   top: 90px;
   left: 10px;
 }
-/* line 124, ../scss/_read.scss */
+/* line 127, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_sentencedelay {
   top: 170px;
   left: 10px;
 }
-/* line 129, ../scss/_read.scss */
+/* line 132, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 133, ../scss/_read.scss */
+/* line 136, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2634,26 +2637,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 143, ../scss/_read.scss */
+/* line 146, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
   width: 350px;
   height: 18px;
-}
-/* line 152, ../scss/_read.scss */
-.__read .__read_settings .__read_close_settings {
-  position: absolute;
-  top: 3px;
-  right: 0;
-  width: 50px;
-  height: 47px;
-  background: url(../images/close-settings-icon.png) no-repeat 0 0;
-  opacity: 0.7;
-}
-/* line 160, ../scss/_read.scss */
-.__read .__read_settings .__read_close_settings:hover {
-  opacity: 1;
 }
 
 /* line 8, ../scss/main.scss */

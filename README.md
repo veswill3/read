@@ -41,6 +41,9 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-09####
 
+ * __removing todo and changelog from repo__ (`James Tomasino`)
+ * __removing console log__ (`James Tomasino`)
+ * __removing console log__ (`James Tomasino`)
  * __trying to avoid all these stupid mergeconflicts__ (`James Tomasino`)
  * __trying to avoid all these stupid mergeconflicts__ (`James Tomasino`)
  * __removing changelog and todo__ (`James Tomasino`)

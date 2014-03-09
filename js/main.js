@@ -206,9 +206,9 @@
 					<div class="__read_before"></div>\
 					<div class="__read_letter"></div>\
 				</div>\
-				<div class="__read_config"></div>\
-				<div class="__read_restart"></div>\
-				<div class="__read_close_read"></div>\
+				<div class="__read_config">&#9881;</div>\
+				<div class="__read_restart">&#8635;</div>\
+				<div class="__read_close_read">&#10007;</div>\
 			</div>\
 			<div class="__read_settings">\
 				<div class="__read_setting __read_wpm">\
@@ -226,7 +226,6 @@
 					<input class="__read_sentence_delay" type="text"/>\
 					<div class="__read_slider __read_sentence_delay_slider"></div>\
 				</div>\
-				<div class="__read_close_settings"></div>\
 			</div>\
 		</div>';
 
@@ -243,7 +242,6 @@
 	};
 
 	var defaultOptions = {
-		element: null,
 		wpm: 300,
 		slowStartCount: 5,
 		sentenceDelay: 2.5,
@@ -260,7 +258,6 @@
 		this._parentElement = null;
 		this._barElement = null;
 		this._settingsElement = null;
-		this._closeSettingsElement = null;
 		this._configElement = null;
 		this._restartElement = null;
 		this._displayElement = null;
@@ -289,7 +286,7 @@
 		// Configured
 		this.setWPM(this._options.wpm);
 		this.setText(block);
-		this.setElement(this._options.element);
+		this.setElement();
 	}
 
 	Read.enforceSingleton = function (inst) {
@@ -402,6 +399,14 @@
 
 	};
 
+	p.toggleSettings = function () {
+		if (this._configElement.hasClass('active')) {
+			this.hideSettings();
+		} else {
+			this.showSettings();
+		}
+	};
+
 	p.showSettings = function () {
 		this._options.element.addClass('open');
 		this._configElement.addClass('active');
@@ -463,11 +468,8 @@
 
 		this._settingsElement = this._options.element.find('.__read_settings');
 
-		this._closeSettingsElement = this._options.element.find('.__read_close_settings');
-		this._closeSettingsElement.on ( "touchend click", $.proxy(this.hideSettings, this) );
-
 		this._configElement = this._options.element.find('.__read_config');
-		this._configElement.on ( "touchend click", $.proxy(this.showSettings, this) );
+		this._configElement.on ( "touchend click", $.proxy(this.toggleSettings, this) );
 
 		this._restartElement = this._options.element.find('.__read_restart');
 		this._restartElement.on ( "touchend click", $.proxy(this.restart, this) );
