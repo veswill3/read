@@ -339,7 +339,6 @@
 
 			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
 
-			console.log (this._currentWord.val);
 			if (!this._currentWord.val.match(whiteSpace)){
 				this._displayElement.html(this._currentWord.val);
 				this._displayElement.css("margin-left", -calc);
@@ -404,7 +403,6 @@
 	};
 
 	p.showSettings = function () {
-		console.log(open);
 		this._options.element.addClass('open');
 		this._configElement.addClass('active');
 	};
