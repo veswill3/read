@@ -1,9 +1,13 @@
 // Compass definitions
 @import "compass";
-@import "compass/reset";
 @import "progrecss";
 @import "nouislider";
 @import "read";
+
+body { 
+	padding: 0;
+	margin: 0;
+}
 
 .wrapper {
 	position: relative;

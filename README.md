@@ -41,6 +41,8 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-09####
 
+ * __removed images and replaced with unicode characters__ (`James Tomasino`)
+ * __removed close button on settings - made gear toggle__ (`James Tomasino`)
  * __removing todo and changelog from repo__ (`James Tomasino`)
  * __removing console log__ (`James Tomasino`)
  * __removing console log__ (`James Tomasino`)
