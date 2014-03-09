@@ -40,8 +40,8 @@ if grunt lint; then
 	cat $CHANGELOG >> $README
 
 	######## UPDATE GIT ###########
-	git add $CHANGELOG
-	git add $TODO
+	#git add $CHANGELOG
+	#git add $TODO
 	git add $README
 
 fi
