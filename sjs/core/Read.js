@@ -56,6 +56,7 @@
 		longWordDelay: 1.4
 	};
 
+	var whiteSpace = /[\n\r\s]/;
 
 	function Read ( block, options ) { //element, wpm ) {
 
@@ -73,6 +74,7 @@
 		this._speedSliderElement = null;
 
 		this._slowStartElement = null;
+		this._slowStartCount = null;
 		this._slowStartSliderElement = null;
 
 		this._sentenceDelayElement = null;
@@ -116,10 +118,9 @@
 			if ( this._currentWord.isShort ) time *= this._options.shortWordDelay;
 			if ( this._currentWord.isLong ) time *= this._options.longWordDelay;
 
-			if (this._options.slowStartCount) {
-				time = time * this._options.slowStartCount;
-				this._options.slowStartCount --;
-			}
+			this._slowStartCount = (this._slowStartCount - 1 ) || 1;
+			time = time * this._slowStartCount;
+
 			this._timer = setTimeout($.proxy(this._next, this),time);
 		} else {
 			this.clearDisplay();
@@ -142,8 +143,11 @@
 
 			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
 
-			this._displayElement.html(this._currentWord.val);
-			this._displayElement.css("margin-left", -calc);
+			console.log (this._currentWord.val);
+			if (!this._currentWord.val.match(whiteSpace)){
+				this._displayElement.html(this._currentWord.val);
+				this._displayElement.css("margin-left", -calc);
+			}
 		}
 
 		if (this._options.element && this._block) {
@@ -227,7 +231,7 @@
 			this.pause();
 			this.restart();
 			this._block = new ReadBlock(val);
-
+			this._currentWord = this._block.getWord();
 		}
 	};
 
@@ -306,8 +310,10 @@
 	p.play = function () {
 		if (this._block) {
 			if (this._isEnded) {
-				this.restart();
-				this._isEnded = false;
+				return;
+			}
+			if (this._options.slowStartCount) {
+				this._slowStartCount = this._options.slowStartCount;
 			}
 			this._display();
 			this._isPlaying = true;
@@ -325,8 +331,16 @@
 
 	p.restart = function () {
 		if (this._block) {
+			if (!this._isEnded) {
+				this.pause();
+			}
+			if (this._options.slowStartCount) {
+				this._slowStartCount = this._options.slowStartCount;
+			}
 			this._block.restart();
-			this._showWord();
+			this._currentWord = this._block.getWord();
+			this._isEnded = false;
+			this.play();
 		}
 	};
 
