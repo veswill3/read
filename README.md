@@ -42,6 +42,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 ####2014-03-09####
 
  * __removing changelog and todo__ (`James Tomasino`)
+ * __removing changelog and todo__ (`James Tomasino`)
  * __better restart and display__ (`James Tomasino`)
 
 ####2014-03-07####
