@@ -5,6 +5,7 @@
  * __removed forced set of slow read speed on play__ (`Eric Emmons`)
  * __restructured setting markup. added slow start speed slider__ (`Eric Emmons`)
  * __added close button. added slide down setting container. speed can be adjusted by slider on the fly. added restart button.__ (`Eric Emmons`)
+ * added sentence delay slider to settings (`Eric Emmons`)
 
 ####2014-03-06####
 
