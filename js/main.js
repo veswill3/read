@@ -605,7 +605,8 @@ $(function() {
 
 	$('#txt').on('blur', function () {
 		if (this.value) {
-			r.setText ( this.value );
+			r.destroy();
+			r = new Read ( this.value );
 			r.play();
 		}
 	});
