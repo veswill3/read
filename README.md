@@ -39,8 +39,13 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-10####
+
+ * __changing fonts to css imports__ (`James Tomasino`)
+
 ####2014-03-09####
 
+ * __added left:0__ (`James Tomasino`)
  * __fixing some binding for default vals in menu__ (`James Tomasino`)
  * __removed images and replaced with unicode characters__ (`James Tomasino`)
  * __removed close button on settings - made gear toggle__ (`James Tomasino`)
