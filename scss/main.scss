@@ -1,7 +1,7 @@
 // Compass definitions
 @import "compass";
-@import "progrecss";
 @import "nouislider";
+@import "progrecss";
 @import "read";
 
 body { 
@@ -24,7 +24,7 @@ body {
 
 		textarea {
 			@include box-sizing(border-box);
-			font-family: 'Droid Serif', serif;
+			font-family: 'droid', serif;
 			font-size: 12px;
 			width: 500px;
 			height: 300px;

@@ -2,8 +2,8 @@
 	"use strict";
 
 	/*jshint multistr: true */
-	var ele = '<div class="__read __progrecss">\
-			<div class="__read_bar">\
+	var ele = '<div class="__read">\
+			<div class="__read_bar progrecss">\
 				<div class="__read_position">\
 					<div class="__read_indicator"></div>\
 					<div class="__read_display"></div>\
@@ -123,7 +123,7 @@
 			this.clearDisplay();
 			this._isPlaying = false;
 			this._isEnded = true;
-			this._options.element.attr('data-progrecss', 100 );
+			this._barElement.attr('data-progrecss', 100 );
 		}
 	};
 
@@ -147,7 +147,7 @@
 		}
 
 		if (this._options.element && this._block) {
-			this._options.element.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
+			this._barElement.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
 		}
 	};
 

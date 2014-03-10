@@ -1,5 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-@import url(http://fonts.googleapis.com/css?family=Cardo);
+@font-face {
+    font-family: 'droid';
+    src: url('../fonts/DroidSans-webfont.eot');
+    src: url('../fonts/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/DroidSans-webfont.woff') format('woff'),
+         url('../fonts/DroidSans-webfont.ttf') format('truetype'),
+         url('../fonts/DroidSans-webfont.svg#dejavu_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .__read {
 	position: fixed;
@@ -12,7 +20,6 @@
 	padding: 0;
 	margin: 0;
 	z-index: 999999;
-	cursor: pointer;
 	color: #000;
 	-webkit-transition:all ease-in-out 0.4s;
     transition:all ease-in-out 0.4s;
@@ -57,8 +64,9 @@
 				@include box-sizing(border-box);
 				padding: 10px 10px 10px 221px;
 				width: 300px;
-				font-family: 'Droid Serif', serif;
+				font-family: 'droid', serif;
 				font-size: 30px;
+				cursor: pointer;
 			}
 
 			.__read_before,
@@ -77,24 +85,26 @@
 			margin: 0;
 			padding: 0;
 			font-size: 36px;
-			font-family: 'Cardo', serif;
+			font-family: 'droid', serif;
 			line-height: 36px;
 			opacity: 0.1;
+			cursor: pointer;
 			&.active, &:hover { opacity: 0.4; }
 		}
 
 		.__read_restart {
 			position: absolute;
-			top: 4px;
-			left: 38px;
+			top: 6px;
+			left: 45px;
 			width: 50px;
 			height: 47px;
 			padding: 0;
 			margin: 0;
-			font-size: 35px;
-			font-family: 'Cardo', serif;
+			font-size: 37px;
+			font-family: 'droid', serif;
 			line-height: 37px;
 			opacity: 0.1;
+			cursor: pointer;
 			&.active, &:hover { opacity: 0.4; }
 		}
 
@@ -108,8 +118,9 @@
 			margin: 0;
 			line-height: 36px;
 			font-size: 30px;
-			font-family: 'Cardo', serif;
+			font-family: 'droid', serif;
 			opacity: 0.1;
+			cursor: pointer;
 			&:hover { opacity: 0.4; }
 		}
 	}
@@ -127,7 +138,7 @@
 			display: block;
 			position: absolute;
 			@include box-sizing(border-box);
-			font-family: 'Droid Serif', serif;
+			font-family: 'droid', serif;
 			font-size: 14px;
 		}
 
