@@ -39,6 +39,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-10####
+
+ * __changing fonts to css imports__ (`James Tomasino`)
+
 ####2014-03-09####
 
  * __added left:0__ (`James Tomasino`)
