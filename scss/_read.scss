@@ -18,21 +18,22 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 50px;
+	max-height: 50px;
 	padding: 0;
 	margin: 0;
 	text-align: left;
 	z-index: 999999;
 	color: #000;
-	-webkit-transition:all ease-in-out 0.4s;
-    transition:all ease-in-out 0.4s;
+	@include transition-property(max-height);
+	@include transition-duration(0.5s);
+	// @include transition-timing-function(ease-in);
 	overflow: hidden;
 
 	* {
 		@include box-sizing(border-box);
 	}
 
-	&.open { height: 300px; }
+	&.open { max-height: 500px; }
 
 	.__read_bar {
 		width: 100%;
@@ -127,66 +128,34 @@
 	}
 
 	.__read_settings {
-		position: absolute;
-		top: 50px;
+		position: relative;
+		top: 0;
 		width: 100%;
-		height: 250px;
+		height: auto;
+		text-align: center;
 		@include background-image(linear-gradient(top, #E7E7E7, #E3E3E3));
 		border-bottom: 2px solid #CCC;
 		z-index: 10;
 
-
-		.__read_setting_common {
-			display: block;
-			position: absolute;
+		.__read_setting {
+			position: relative;
+			display: inline-block;
+			height: 60px;
+			width: 200px;
+			margin: 0 40px 10px 0;
 			@include box-sizing(border-box);
 			font-family: 'droid', serif;
-			font-size: 12px;
-		}
-
-		.__read_setting {
-			top: 0;
-			left: 0;
-			width: 200px;
-			height: 80px;
-			&.__read_wpm {
-				@extend .__read_setting_common;
-				top: 10px;
-				left: 10px;
-			}
-			&.__read_slowstart {
-				@extend .__read_setting_common;
-				top: 90px;
-				left: 10px;
-			}
-			&.__read_sentencedelay {
-				@extend .__read_setting_common;
-				top: 170px;
-				left: 10px;
-			}
-			&.__read_puncdelay {
-				@extend .__read_setting_common;
-				top: 10px;
-				left: 350px;
-			}
-			&.__read_shortworddelay {
-				@extend .__read_setting_common;
-				top: 90px;
-				left: 350px;
-			}
-			&.__read_longworddelay {
-				@extend .__read_setting_common;
-				top: 170px;
-				left: 350px;
-			}
 			label {
-				@extend .__read_setting_common;
+				position: absolute;
+				top: 10px;
 				left: 10px;
+				font-size: 13px;
 			}
+
 			input {
-				@extend .__read_setting_common;
-				top: 20px;
-				left: 10px;
+				position: absolute;
+				top: 30px;
+				left: 8px;
 				text-align: center;
 				width: 60px;
 				height: 30px;
@@ -195,18 +164,17 @@
 				@include border-radius(8px);
 				@include box-shadow(inset 0 0 8px rgba(0,0,0,0.3));
 				border: none;
-				// @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
-
 				&:focus {
 					outline: none;
 					border: 1px solid $color;
 					@include border-radius(8px);
 				}
 			}
+
 			.__read_slider {
-				@extend .__read_setting_common;
-				top: 32px;
-				left: 125px;
+				position: absolute;
+				top: 39px;
+				left: 75px;
 				width: 150px;
 				height: 10px;
 			}
