@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-11####
 
+ * __Read supports storing data in chrome sync__ (`James Tomasino`)
  * __triggering blur events for all UI inputs for plugin binding__ (`James Tomasino`)
  * __enforcing left alignment__ (`James Tomasino`)
 

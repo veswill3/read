@@ -133,7 +133,7 @@
 /* line 98, ../scss/_nouislider.scss */
 .noUi-target {
   border-radius: 4px;
-  border: 1px solid #D3D3D3;
+  border: 1px solid lightgrey;
   box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
 }
 
@@ -156,7 +156,7 @@
 
 /* line 115, ../scss/_nouislider.scss */
 .noUi-handle {
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 3px;
   background: #FFF;
   cursor: default;
@@ -2498,7 +2498,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   padding: 10px 10px 10px 221px;
   width: 300px;
-  font-family: 'droid', serif;
+  font-family: "droid", serif;
   font-size: 30px;
   cursor: pointer;
 }
@@ -2572,13 +2572,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   z-index: 10;
 }
 /* line 138, ../scss/_read.scss */
-.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
+.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting.__read_puncdelay, .__read .__read_settings .__read_setting.__read_shortworddelay, .__read .__read_settings .__read_setting.__read_longworddelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'droid', serif;
+  font-family: "droid", serif;
   font-size: 14px;
 }
 /* line 146, ../scss/_read.scss */
@@ -2604,10 +2604,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 10px;
 }
 /* line 166, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_puncdelay {
+  top: 10px;
+  left: 350px;
+}
+/* line 171, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_shortworddelay {
+  top: 90px;
+  left: 350px;
+}
+/* line 176, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_longworddelay {
+  top: 170px;
+  left: 350px;
+}
+/* line 181, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 170, ../scss/_read.scss */
+/* line 185, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2617,10 +2632,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 180, ../scss/_read.scss */
+/* line 195, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
-  width: 350px;
+  width: 150px;
   height: 18px;
 }

@@ -163,6 +163,21 @@
 				top: 170px;
 				left: 10px;
 			}
+			&.__read_puncdelay {
+				@extend .__read_setting_common;
+				top: 10px;
+				left: 350px;
+			}
+			&.__read_shortworddelay {
+				@extend .__read_setting_common;
+				top: 90px;
+				left: 350px;
+			}
+			&.__read_longworddelay {
+				@extend .__read_setting_common;
+				top: 170px;
+				left: 350px;
+			}
 			label {
 				@extend .__read_setting_common;
 				left: 10px;
@@ -181,7 +196,7 @@
 				@extend .__read_setting_common;
 				top: 32px;
 				left: 125px;
-				width: 350px;
+				width: 150px;
 				height: 18px;
 			}
 		}
