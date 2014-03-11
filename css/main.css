@@ -2505,8 +2505,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   padding: 0;
+  top: -99em;
 }
-/* line 81, ../scss/_read.scss */
+/* line 82, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
   position: absolute;
   top: 0;
@@ -2520,11 +2521,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 93, ../scss/_read.scss */
+/* line 94, ../scss/_read.scss */
 .__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
   opacity: 0.4;
 }
-/* line 96, ../scss/_read.scss */
+/* line 97, ../scss/_read.scss */
 .__read .__read_bar .__read_restart {
   position: absolute;
   top: 0;
@@ -2538,11 +2539,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 108, ../scss/_read.scss */
+/* line 109, ../scss/_read.scss */
 .__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
   opacity: 0.4;
 }
-/* line 111, ../scss/_read.scss */
+/* line 112, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read {
   position: absolute;
   top: 0;
@@ -2556,11 +2557,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 123, ../scss/_read.scss */
+/* line 124, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read:hover {
   opacity: 0.4;
 }
-/* line 127, ../scss/_read.scss */
+/* line 128, ../scss/_read.scss */
 .__read .__read_settings {
   position: absolute;
   top: 50px;
@@ -2569,7 +2570,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #c6d6dc;
   z-index: 10;
 }
-/* line 136, ../scss/_read.scss */
+/* line 137, ../scss/_read.scss */
 .__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
@@ -2579,33 +2580,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'droid', serif;
   font-size: 14px;
 }
-/* line 144, ../scss/_read.scss */
+/* line 145, ../scss/_read.scss */
 .__read .__read_settings .__read_setting {
   top: 0;
   left: 0;
   width: 200px;
   height: 80px;
 }
-/* line 149, ../scss/_read.scss */
+/* line 150, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_wpm {
   top: 10px;
   left: 10px;
 }
-/* line 154, ../scss/_read.scss */
+/* line 155, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
   top: 90px;
   left: 10px;
 }
-/* line 159, ../scss/_read.scss */
+/* line 160, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_sentencedelay {
   top: 170px;
   left: 10px;
 }
-/* line 164, ../scss/_read.scss */
+/* line 165, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 168, ../scss/_read.scss */
+/* line 169, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2615,7 +2616,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 178, ../scss/_read.scss */
+/* line 179, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
