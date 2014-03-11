@@ -39,6 +39,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-11####
+
+ * __enforcing left alignment__ (`James Tomasino`)
+
 ####2014-03-10####
 
  * __adding fonts for hardcoding__ (`James Tomasino`)
