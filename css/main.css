@@ -70,8 +70,8 @@
 
 /* line 55, ../scss/_nouislider.scss */
 .noUi-horizontal .noUi-handle {
-  width: 34px;
-  height: 28px;
+  width: 25px;
+  height: 20px;
   left: -17px;
   top: -6px;
 }
@@ -179,13 +179,13 @@
   height: 14px;
   width: 1px;
   background: #E8E7E6;
-  left: 14px;
-  top: 6px;
+  left: 10px;
+  top: 2px;
 }
 
 /* line 143, ../scss/_nouislider.scss */
 .noUi-handle:after {
-  left: 17px;
+  left: 12px;
 }
 
 /* line 147, ../scss/_nouislider.scss */
@@ -2568,10 +2568,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   top: 50px;
   width: 100%;
   height: 250px;
-  background-color: #c6d6dc;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7e7e7), color-stop(100%, #e3e3e3));
+  background-image: -webkit-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: -moz-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: -o-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: linear-gradient(top, #e7e7e7, #e3e3e3);
+  border-bottom: 2px solid #cccccc;
   z-index: 10;
 }
-/* line 138, ../scss/_read.scss */
+/* line 139, ../scss/_read.scss */
 .__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting.__read_puncdelay, .__read .__read_settings .__read_setting.__read_shortworddelay, .__read .__read_settings .__read_setting.__read_longworddelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
@@ -2579,63 +2584,82 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "droid", serif;
-  font-size: 14px;
+  font-size: 12px;
 }
-/* line 146, ../scss/_read.scss */
+/* line 147, ../scss/_read.scss */
 .__read .__read_settings .__read_setting {
   top: 0;
   left: 0;
   width: 200px;
   height: 80px;
 }
-/* line 151, ../scss/_read.scss */
+/* line 152, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_wpm {
   top: 10px;
   left: 10px;
 }
-/* line 156, ../scss/_read.scss */
+/* line 157, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
   top: 90px;
   left: 10px;
 }
-/* line 161, ../scss/_read.scss */
+/* line 162, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_sentencedelay {
   top: 170px;
   left: 10px;
 }
-/* line 166, ../scss/_read.scss */
+/* line 167, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_puncdelay {
   top: 10px;
   left: 350px;
 }
-/* line 171, ../scss/_read.scss */
+/* line 172, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_shortworddelay {
   top: 90px;
   left: 350px;
 }
-/* line 176, ../scss/_read.scss */
+/* line 177, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_longworddelay {
   top: 170px;
   left: 350px;
 }
-/* line 181, ../scss/_read.scss */
+/* line 182, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 185, ../scss/_read.scss */
+/* line 186, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
   text-align: center;
-  width: 100px;
-  height: 40px;
-  font-size: 24px;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
   margin: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  border: none;
 }
-/* line 195, ../scss/_read.scss */
+/* line 200, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input:focus {
+  outline: none;
+  border: 1px solid #3498db;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 206, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
   width: 150px;
-  height: 18px;
+  height: 10px;
 }

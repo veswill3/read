@@ -131,7 +131,8 @@
 		top: 50px;
 		width: 100%;
 		height: 250px;
-		background-color: #c6d6dc;
+		@include background-image(linear-gradient(top, #E7E7E7, #E3E3E3));
+		border-bottom: 2px solid #CCC;
 		z-index: 10;
 
 
@@ -140,7 +141,7 @@
 			position: absolute;
 			@include box-sizing(border-box);
 			font-family: 'droid', serif;
-			font-size: 14px;
+			font-size: 12px;
 		}
 
 		.__read_setting {
@@ -187,17 +188,27 @@
 				top: 20px;
 				left: 10px;
 				text-align: center;
-				width: 100px;
-				height: 40px;
-				font-size: 24px;
+				width: 60px;
+				height: 30px;
+				font-size: 16px;
 				margin: 0;
+				@include border-radius(8px);
+				@include box-shadow(inset 0 0 8px rgba(0,0,0,0.3));
+				border: none;
+				// @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+
+				&:focus {
+					outline: none;
+					border: 1px solid $color;
+					@include border-radius(8px);
+				}
 			}
 			.__read_slider {
 				@extend .__read_setting_common;
 				top: 32px;
 				left: 125px;
 				width: 150px;
-				height: 18px;
+				height: 10px;
 			}
 		}
 	}
