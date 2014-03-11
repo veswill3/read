@@ -44,6 +44,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
  * __adding fonts for hardcoding__ (`James Tomasino`)
  * __using all google fonts and properly aligning__ (`James Tomasino`)
  * __changing fonts to css imports__ (`James Tomasino`)
+ * moving text math out of the way to enable pause/play (`James Tomasino`)
  * added compass back in (`James Tomasino`)
  * split css files for easier porting (`James Tomasino`)
  * using dataurls for images (`James Tomasino`)
