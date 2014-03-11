@@ -206,9 +206,9 @@
 					<div class="__read_before"></div>\
 					<div class="__read_letter"></div>\
 				</div>\
-				<div class="__read_config">&#9881;</div>\
-				<div class="__read_restart">&#8635;</div>\
-				<div class="__read_close_read">&#10007;</div>\
+				<div class="__read_config"></div>\
+				<div class="__read_restart"></div>\
+				<div class="__read_close_read"></div>\
 			</div>\
 			<div class="__read_settings">\
 				<div class="__read_setting __read_wpm">\

@@ -44,6 +44,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
  * __adding fonts for hardcoding__ (`James Tomasino`)
  * __using all google fonts and properly aligning__ (`James Tomasino`)
  * __changing fonts to css imports__ (`James Tomasino`)
+ * rebuilding Read on change (`James Tomasino`)
  * updating fonts and fixing styles (`James Tomasino`)
 
 ####2014-03-09####
