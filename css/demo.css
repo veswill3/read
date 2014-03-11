@@ -1,0 +1,35 @@
+/* line 3, ../scss/demo.scss */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 8, ../scss/demo.scss */
+.wrapper {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 500px;
+  margin: 0 auto;
+}
+/* line 14, ../scss/demo.scss */
+.wrapper .input {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  top: 20px;
+  left: 0;
+  width: 500px;
+}
+/* line 21, ../scss/demo.scss */
+.wrapper .input textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'droid', serif;
+  font-size: 12px;
+  width: 500px;
+  height: 300px;
+}
