@@ -2622,39 +2622,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   width: 350px;
   height: 18px;
 }
-
-/* line 7, ../scss/main.scss */
-body {
-  padding: 0;
-  margin: 0;
-}
-
-/* line 12, ../scss/main.scss */
-.wrapper {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 500px;
-  margin: 0 auto;
-}
-/* line 18, ../scss/main.scss */
-.wrapper .input {
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  top: 20px;
-  left: 0;
-  width: 500px;
-}
-/* line 25, ../scss/main.scss */
-.wrapper .input textarea {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'droid', serif;
-  font-size: 12px;
-  width: 500px;
-  height: 300px;
-}
