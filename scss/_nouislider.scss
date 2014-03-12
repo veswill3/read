@@ -53,9 +53,9 @@
 	height: 18px;
 }
 .noUi-horizontal .noUi-handle {
-	width: 26px;
+	width: 32px;
 	height: 20px;
-	left: -13px;
+	left: -16px;
 	top: -6px;
 }
 .noUi-horizontal.noUi-extended {
@@ -87,7 +87,7 @@
 	box-shadow: inset 0 1px 1px #f0f0f0;
 }
 .noUi-connect {
-	background: #3FB8AF;
+	background: #3498DB;
 	box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
 -webkit-transition: background 450ms;
 	transition: background 450ms;
@@ -137,11 +137,11 @@
 	height: 14px;
 	width: 1px;
 	background: #E8E7E6;
-	left: 10px;
+	left: 14px;
 	top: 2px;
 }
 .noUi-handle:after {
-	left: 12px;
+	left: 16px;
 }
 .noUi-vertical .noUi-handle:before,
 .noUi-vertical .noUi-handle:after {
