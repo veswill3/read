@@ -2595,15 +2595,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   font-family: "droid", serif;
 }
-/* line 148, ../scss/_read.scss */
-.__read .__read_settings .__read_setting label {
+/* line 149, ../scss/_read.scss */
+.__read .__read_settings .__read_setting label.__read_label {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 13px;
 }
-/* line 155, ../scss/_read.scss */
-.__read .__read_settings .__read_setting input {
+/* line 158, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input {
   position: absolute;
   top: 30px;
   left: 8px;
@@ -2622,8 +2622,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
   border: none;
 }
-/* line 167, ../scss/_read.scss */
-.__read .__read_settings .__read_setting input:focus {
+/* line 170, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input:focus {
   outline: none;
   border: 1px solid #3498db;
   -webkit-border-radius: 8px;
@@ -2632,7 +2632,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 174, ../scss/_read.scss */
+/* line 178, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   position: absolute;
   top: 39px;
