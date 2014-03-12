@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-11####
 
+ * __tweaked css of slider handle__ (`Eric Emmons`)
  * __options are responsive__ (`Eric Emmons`)
  * __restyling options__ (`Eric Emmons`)
  * __added other puctuation, short word, and long word delay options.__ (`Eric Emmons`)
