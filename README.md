@@ -39,6 +39,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-12####
+
+ * __maxed out z-index__ (`Eric Emmons`)
+
 ####2014-03-11####
 
  * __tweaked css of slider handle__ (`Eric Emmons`)
@@ -48,6 +52,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
  * __Read supports storing data in chrome sync__ (`James Tomasino`)
  * __triggering blur events for all UI inputs for plugin binding__ (`James Tomasino`)
  * __enforcing left alignment__ (`James Tomasino`)
+ * added color to options sliders and fixed slider handle range issue (`Eric Emmons`)
 
 ####2014-03-10####
 

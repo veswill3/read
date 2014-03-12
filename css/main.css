@@ -133,8 +133,8 @@
 /* line 98, ../scss/_nouislider.scss */
 .noUi-target {
   border-radius: 4px;
-  border: 1px solid #D3D3D3;
-  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+  border: 1px solid lightgrey;
+  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
 }
 
 /* line 103, ../scss/_nouislider.scss */
@@ -156,16 +156,16 @@
 
 /* line 115, ../scss/_nouislider.scss */
 .noUi-handle {
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 3px;
   background: #FFF;
   cursor: default;
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+  box-shadow: inset 0 0 1px white, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbbbbb;
 }
 
 /* line 124, ../scss/_nouislider.scss */
 .noUi-active {
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
+  box-shadow: inset 0 0 1px white, inset 0 1px 7px #dddddd, 0 3px 6px -3px #bbbbbb;
 }
 
 /* Handle stripes;
@@ -2436,7 +2436,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   margin: 0;
   text-align: left;
-  z-index: 999999;
+  z-index: 2147483647;
   color: #000;
   -webkit-transition-property: max-height;
   -moz-transition-property: max-height;
@@ -2504,7 +2504,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   padding: 10px 10px 10px 221px;
   width: 300px;
-  font-family: 'droid', serif;
+  font-family: "droid", serif;
   font-size: 30px;
   cursor: pointer;
 }
@@ -2580,7 +2580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-image: -moz-linear-gradient(top, #e7e7e7, #e3e3e3);
   background-image: -o-linear-gradient(top, #e7e7e7, #e3e3e3);
   background-image: linear-gradient(top, #e7e7e7, #e3e3e3);
-  border-bottom: 2px solid #CCC;
+  border-bottom: 2px solid #cccccc;
   z-index: 10;
 }
 /* line 140, ../scss/_read.scss */
@@ -2593,7 +2593,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'droid', serif;
+  font-family: "droid", serif;
 }
 /* line 148, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
