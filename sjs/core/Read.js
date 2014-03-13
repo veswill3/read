@@ -404,6 +404,9 @@
 				case 32: // space  bar
 					_this.playPauseToggle();
 					break;
+				case 37: // left arrow
+					// TODO: jump back # words
+					break;
 				case 38: // up arrow
 					var speedUp = _this._wpm + 25;
 					if ( _this._wpm < _this._options.wpmMax ) {
@@ -411,6 +414,9 @@
 						_this.updateWPMFromUI();
 						console.log(speedUp);
 					}
+					break;
+				case 39: // right arrow
+					// TODO: jump forward # words
 					break;
 				case 40: // down arrow
 					var speedDown = _this._wpm - 25;
