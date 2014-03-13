@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-13####
 
+ * bound R key to restart (`Eric Emmons`)
  * bound up and down arrows to increase/decrease wpm (`Eric Emmons`)
  * bound spacebar to play pause (`Eric Emmons`)
 

@@ -619,6 +619,9 @@
 				case 82: // R key
 					_this.restart();
 					break;
+				case 83: // S key
+					_this.toggleSettings();
+					break;
 				default:
 					break;
 			}
