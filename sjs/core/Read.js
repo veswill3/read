@@ -420,6 +420,9 @@
 						console.log(speedDown);
 					}
 					break;
+				case 82: // R key
+					_this.restart();
+					break;
 				default:
 					break;
 			}
