@@ -61,6 +61,8 @@
 	};
 
 	var defaultOptions = {
+		wpmMin: 300,
+		wpmMax: 1200,
 		wpm: 300,
 		slowStartCount: 5,
 		sentenceDelay: 2.5,
@@ -176,10 +178,9 @@
 	};
 
 	p._initSettings = function () {
-
 		// WPM
 		this._speedSliderElement.noUiSlider({
-			range: [300,1200],
+			range: [this._options.wpmMin,this._options.wpmMax],
 			start: this._options.wpm,
 			step: 25,
 			connect: 'lower',
@@ -334,6 +335,9 @@
 	};
 
 	p.setElement = function (val) {
+
+		var _this = this;
+
 		if (!val) {
 			val = 'body';
 		}
@@ -351,7 +355,6 @@
 		} else {
 			this._parentElement = $(val);
 		}
-
 
 		// bind new binds
 		this._options.element = $(ele);
@@ -394,6 +397,17 @@
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 		this._speedSliderElement = this._options.element.find('.__read_speed_slider');
+
+
+		this._parentElement.on ( "keydown", function(e) {
+			switch ( e.keyCode ) {
+				case 32: // space  bar
+					_this.playPauseToggle();
+					break;
+				default:
+					break;
+			}
+		});
 
 		this._initSettings();
 	};

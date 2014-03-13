@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-12####
 
+ * __added padding 0 to inputs__ (`Eric Emmons`)
  * __added more css specificity to labels and inputs__ (`Eric Emmons`)
  * __maxed out z-index__ (`Eric Emmons`)
  * __maxed out z-index__ (`Eric Emmons`)
