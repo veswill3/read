@@ -622,6 +622,9 @@
 				case 83: // S key
 					_this.toggleSettings();
 					break;
+				case 88: // X key
+					_this.destroy();
+					break;
 				default:
 					break;
 			}
