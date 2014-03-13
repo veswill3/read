@@ -39,6 +39,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-13####
+
+ * bound spacebar to play pause (`Eric Emmons`)
+
 ####2014-03-12####
 
  * __added padding 0 to inputs__ (`Eric Emmons`)

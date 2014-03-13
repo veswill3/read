@@ -600,6 +600,22 @@
 				case 32: // space  bar
 					_this.playPauseToggle();
 					break;
+				case 38: // up arrow
+					var speedUp = _this._wpm + 25;
+					if ( _this._wpm < _this._options.wpmMax ) {
+						_this._speedSliderElement.val(speedUp);
+						_this.updateWPMFromUI();
+						console.log(speedUp);
+					}
+					break;
+				case 40: // down arrow
+					var speedDown = _this._wpm - 25;
+					if ( _this._wpm > _this._options.wpmMin ) {
+						_this._speedSliderElement.val(speedDown);
+						_this.updateWPMFromUI();
+						console.log(speedDown);
+					}
+					break;
 				default:
 					break;
 			}
