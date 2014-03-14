@@ -35,12 +35,17 @@ When you encounter a period, question mark, exclamation point or other punctuati
 The tool also gives an additional pause between paragraphs to help contextualize and process information as you read it.
 
 ## TODO ##
+// - increase font size?
+// - decrease font size?
+// - increase font size?
+// - decrease font size?
 - Unit test Word class
 
 ## COMMIT LOG ##
 
 ####2014-03-13####
 
+ * decreased opacity of settings. replay, and close butons (`Eric Emmons`)
  * bound left and right arrows to jump fwd/back variable number of words (`Eric Emmons`)
  * added TODO in key press handler for left and right arrows (`Eric Emmons`)
  * bound X key to destroy (`Eric Emmons`)

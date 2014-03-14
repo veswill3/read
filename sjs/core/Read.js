@@ -442,6 +442,14 @@
 				case 88: // X key
 					_this.destroy();
 					break;
+				case 107:
+				case 187: // + keys
+					// TODO: increase font size?
+					break;
+				case 109:
+				case 189: // - keys
+					// TODO: decrease font size?
+					break;
 				default:
 					break;
 			}
