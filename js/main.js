@@ -174,12 +174,14 @@
 			return null;
 	};
 
-	p.next = function () {
-		this.index = Math.min( this.index + 1, this.words.length );
+	p.next = function (num) {
+		if (typeof num === 'undefined') num = 1;
+		this.index = Math.min( this.index + num, this.words.length );
 	};
 
-	p.prev = function () {
-		this.index = Math.max( this.index - 1, 0 );
+	p.prev = function (num) {
+		if (typeof num === 'undefined') num = 1;
+		this.index = Math.max( this.index - num, 0 );
 	};
 
 	p.restart = function () {
@@ -264,7 +266,8 @@
 		sentenceDelay: 2.5,
 		otherPuncDelay: 1.5,
 		shortWordDelay: 1.3,
-		longWordDelay: 1.4
+		longWordDelay: 1.4,
+		jumpWordCount: 10
 	};
 
 	var whiteSpace = /[\n\r\s]/;
@@ -530,6 +533,11 @@
 		this._display();
 	};
 
+	p._prev = function() {
+		this._block.prev();
+		this._display();
+	};
+
 	p.setElement = function (val) {
 
 		var _this = this;
@@ -601,7 +609,7 @@
 					_this.playPauseToggle();
 					break;
 				case 37: // left arrow
-					// TODO: jump back # words
+					_this._block.prev(_this._options.jumpWordCount);
 					break;
 				case 38: // up arrow
 					var speedUp = _this._wpm + 25;
@@ -612,7 +620,8 @@
 					}
 					break;
 				case 39: // right arrow
-					// TODO: jump forward # words
+				console.log(_this._options.jumpWordCount);
+					_this._block.next(_this._options.jumpWordCount);
 					break;
 				case 40: // down arrow
 					var speedDown = _this._wpm - 25;

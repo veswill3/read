@@ -73,12 +73,14 @@
 			return null;
 	};
 
-	p.next = function () {
-		this.index = Math.min( this.index + 1, this.words.length );
+	p.next = function (num) {
+		if (typeof num === 'undefined') num = 1;
+		this.index = Math.min( this.index + num, this.words.length );
 	};
 
-	p.prev = function () {
-		this.index = Math.max( this.index - 1, 0 );
+	p.prev = function (num) {
+		if (typeof num === 'undefined') num = 1;
+		this.index = Math.max( this.index - num, 0 );
 	};
 
 	p.restart = function () {

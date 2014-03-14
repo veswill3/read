@@ -35,16 +35,13 @@ When you encounter a period, question mark, exclamation point or other punctuati
 The tool also gives an additional pause between paragraphs to help contextualize and process information as you read it.
 
 ## TODO ##
-// - jump back # words
-// - jump forward # words
-// - jump back # words
-// - jump forward # words
 - Unit test Word class
 
 ## COMMIT LOG ##
 
 ####2014-03-13####
 
+ * added TODO in key press handler for left and right arrows (`Eric Emmons`)
  * bound X key to destroy (`Eric Emmons`)
  * bound S key to toggle settings pane (`Eric Emmons`)
  * bound R key to restart (`Eric Emmons`)
