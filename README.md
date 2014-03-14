@@ -41,6 +41,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-13####
 
+ * bound left and right arrows to jump fwd/back variable number of words (`Eric Emmons`)
  * added TODO in key press handler for left and right arrows (`Eric Emmons`)
  * bound X key to destroy (`Eric Emmons`)
  * bound S key to toggle settings pane (`Eric Emmons`)
