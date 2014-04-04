@@ -77,7 +77,7 @@
 
 	var whiteSpace = /[\n\r\s]/;
 
-	function Read ( block, options ) { //element, wpm ) {
+	function Read ( block, options ) {
 
 		// Defaults
 		this._parentElement = null;
@@ -560,6 +560,18 @@
 		val = Math.max(0,val);
 		val = Math.min(10,val);
 		this._options.slowStartCount = val;
+	};
+
+	p.setUseKeyBindings = function ( val ) {
+		var newVal = ( val === true) ? true : false;
+		if (newVal !== this._options.useKeyBindings) {
+			this._options.useKeyBindings = newVal;
+			if (newVal) {
+				this.addKeyBindings();
+			} else {
+				this.removeKeyBindings();
+			}
+		}
 	};
 
 	p.updateWPMFromUI = function () {
