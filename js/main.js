@@ -568,8 +568,7 @@
 				var speedUp = this._wpm + 25;
 				if ( this._wpm < this._options.wpmMax ) {
 					this._speedSliderElement.val(speedUp);
-					this.updateWPMFromUI();
-					console.log(speedUp);
+					this._speedElement.blur();
 				}
 				break;
 			case 39: // right arrow
@@ -579,8 +578,7 @@
 				var speedDown = this._wpm - 25;
 				if ( this._wpm > this._options.wpmMin ) {
 					this._speedSliderElement.val(speedDown);
-					this.updateWPMFromUI();
-					console.log(speedDown);
+					this._speedElement.blur();
 				}
 				break;
 			case 82: // R key

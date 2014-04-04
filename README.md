@@ -43,6 +43,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-04-04####
+
+ * __key events can bind or not based on bool. fixed css__ (`James Tomasino`)
+
 ####2014-03-14####
 
  * __proxy key binding function__ (`Eric Emmons`)
