@@ -1,4 +1,5 @@
 @import "images";
+@import "compass/css3/user-interface";
 
 @font-face {
     font-family: 'droid';
@@ -28,6 +29,7 @@
 	@include transition-duration(0.5s);
 	// @include transition-timing-function(ease-in);
 	overflow: hidden;
+	@include user-select(none);
 
 	* {
 		@include box-sizing(border-box);
@@ -71,6 +73,7 @@
 				font-family: 'droid', serif;
 				font-size: 30px;
 				cursor: pointer;
+				@include user-select(none);
 			}
 
 			.__read_before,
@@ -167,6 +170,7 @@
 					padding: 0;
 					@include border-radius(8px);
 					@include box-shadow(inset 0 0 8px rgba(0,0,0,0.3));
+					@include user-select(all);
 					border: none;
 					&:focus {
 						outline: none;

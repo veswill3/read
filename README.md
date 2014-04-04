@@ -43,6 +43,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ## COMMIT LOG ##
 
+####2014-03-14####
+
+ * __proxy key binding function__ (`Eric Emmons`)
+
 ####2014-03-13####
 
  * bound + and - keys and added TODO stubs in key press handler (`Eric Emmons`)

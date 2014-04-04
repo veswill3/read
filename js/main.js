@@ -246,6 +246,8 @@
 			</div>\
 		</div>';
 
+	var tagTypesToSkip = ['INPUT', 'TEXTAREA', 'SELECT' ];
+
 	$.fn.textWidth = function(){
 		var self = $(this),
 			children = self.contents(),
@@ -267,7 +269,8 @@
 		otherPuncDelay: 1.5,
 		shortWordDelay: 1.3,
 		longWordDelay: 1.4,
-		jumpWordCount: 10
+		jumpWordCount: 10,
+		useKeyBindings: true
 	};
 
 	var whiteSpace = /[\n\r\s]/;
@@ -508,6 +511,7 @@
 
 	p.destroy = function () {
 		p.pause();
+		this.removeKeyBindings();
 		this._speedElement.off ( "blur" );
 		this._speedElement.off ( "keydown" );
 		this._parentElement.find('.__read').remove();
@@ -536,6 +540,69 @@
 	p._prev = function() {
 		this._block.prev();
 		this._display();
+	};
+
+	p.addKeyBindings = function () {
+		this._parentElement.on ( "keydown", $.proxy(this._handleKeys, this) );
+	};
+
+	p.removeKeyBindings = function () {
+		this._parentElement.off ( "keydown", $.proxy(this._handleKeys, this) );
+	};
+
+
+	p._handleKeys = function(e) {
+
+		// Don't handle keypresses inside certain dom elements
+		var tagType = e.target.tagName;
+		if (tagTypesToSkip.indexOf(tagType) != -1) return;
+
+		switch ( e.keyCode ) {
+			case 32: // space  bar
+				this.playPauseToggle();
+				break;
+			case 37: // left arrow
+				this._block.prev(this._options.jumpWordCount);
+				break;
+			case 38: // up arrow
+				var speedUp = this._wpm + 25;
+				if ( this._wpm < this._options.wpmMax ) {
+					this._speedSliderElement.val(speedUp);
+					this.updateWPMFromUI();
+					console.log(speedUp);
+				}
+				break;
+			case 39: // right arrow
+				this._block.next(this._options.jumpWordCount);
+				break;
+			case 40: // down arrow
+				var speedDown = this._wpm - 25;
+				if ( this._wpm > this._options.wpmMin ) {
+					this._speedSliderElement.val(speedDown);
+					this.updateWPMFromUI();
+					console.log(speedDown);
+				}
+				break;
+			case 82: // R key
+				this.restart();
+				break;
+			case 83: // S key
+				this.toggleSettings();
+				break;
+			case 88: // X key
+				this.destroy();
+				break;
+			case 107:
+			case 187: // + keys
+				// TODO: increase font size?
+				break;
+			case 109:
+			case 189: // - keys
+				// TODO: decrease font size?
+				break;
+			default:
+				break;
+		}
 	};
 
 	p.setElement = function (val) {
@@ -600,55 +667,9 @@
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 		this._speedSliderElement = this._options.element.find('.__read_speed_slider');
 
-
-		this._parentElement.on ( "keydown", $.proxy(function(e) {
-			switch ( e.keyCode ) {
-				case 32: // space  bar
-					this.playPauseToggle();
-					break;
-				case 37: // left arrow
-					this._block.prev(this._options.jumpWordCount);
-					break;
-				case 38: // up arrow
-					var speedUp = this._wpm + 25;
-					if ( this._wpm < this._options.wpmMax ) {
-						this._speedSliderElement.val(speedUp);
-						this.updateWPMFromUI();
-						console.log(speedUp);
-					}
-					break;
-				case 39: // right arrow
-					this._block.next(this._options.jumpWordCount);
-					break;
-				case 40: // down arrow
-					var speedDown = this._wpm - 25;
-					if ( this._wpm > this._options.wpmMin ) {
-						this._speedSliderElement.val(speedDown);
-						this.updateWPMFromUI();
-						console.log(speedDown);
-					}
-					break;
-				case 82: // R key
-					this.restart();
-					break;
-				case 83: // S key
-					this.toggleSettings();
-					break;
-				case 88: // X key
-					this.destroy();
-					break;
-				case 107:
-				case 187: // + keys
-					// TODO: increase font size?
-					break;
-				case 109:
-				case 189: // - keys
-					// TODO: decrease font size?
-					break;
-				default:
-					break;
-			}
-		}, this));
+		if (this._options.useKeyBindings) {
+			this.addKeyBindings();
+		}
 
 		this._initSettings();
 	};
