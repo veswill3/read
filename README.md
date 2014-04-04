@@ -45,6 +45,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-04-04####
 
+ * __speed change is via blur now__ (`James Tomasino`)
  * __key events can bind or not based on bool. fixed css__ (`James Tomasino`)
 
 ####2014-03-14####

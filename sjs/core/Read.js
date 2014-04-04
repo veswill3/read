@@ -72,7 +72,7 @@
 		shortWordDelay: 1.3,
 		longWordDelay: 1.4,
 		jumpWordCount: 10,
-		useKeyBindings: true
+		useKeyBindings: false
 	};
 
 	var whiteSpace = /[\n\r\s]/;
