@@ -1,4 +1,5 @@
 @import "images";
+@import "compass/css3/user-interface";
 
 @font-face {
     font-family: 'droid';
@@ -18,20 +19,23 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 50px;
+	max-height: 50px;
 	padding: 0;
 	margin: 0;
-	z-index: 999999;
+	text-align: left;
+	z-index: 2147483647;
 	color: #000;
-	-webkit-transition:all ease-in-out 0.4s;
-    transition:all ease-in-out 0.4s;
+	@include transition-property(max-height);
+	@include transition-duration(0.5s);
+	// @include transition-timing-function(ease-in);
 	overflow: hidden;
+	@include user-select(none);
 
 	* {
 		@include box-sizing(border-box);
 	}
 
-	&.open { height: 300px; }
+	&.open { max-height: 500px; }
 
 	.__read_bar {
 		width: 100%;
@@ -69,6 +73,7 @@
 				font-family: 'droid', serif;
 				font-size: 30px;
 				cursor: pointer;
+				@include user-select(none);
 			}
 
 			.__read_before,
@@ -89,9 +94,9 @@
 			padding: 0;
 			font-size: 36px;
 			line-height: 36px;
-			opacity: 0.1;
+			opacity: 0.25;
 			cursor: pointer;
-			&.active, &:hover { opacity: 0.4; }
+			&.active, &:hover { opacity: 0.5; }
 		}
 
 		.__read_restart {
@@ -104,9 +109,9 @@
 			margin: 0;
 			font-size: 37px;
 			line-height: 37px;
-			opacity: 0.1;
+			opacity: 0.25;
 			cursor: pointer;
-			&.active, &:hover { opacity: 0.4; }
+			&.active, &:hover { opacity: 0.5; }
 		}
 
 		.__read_close_read {
@@ -119,69 +124,69 @@
 			margin: 0;
 			line-height: 36px;
 			font-size: 30px;
-			opacity: 0.1;
+			opacity: 0.25;
 			cursor: pointer;
 			&:hover { opacity: 0.4; }
 		}
 	}
 
 	.__read_settings {
-		position: absolute;
-		top: 50px;
+		position: relative;
+		top: 0;
 		width: 100%;
-		height: 250px;
-		background-color: #c6d6dc;
+		height: auto;
+		text-align: center;
+		@include background-image(linear-gradient(top, #E7E7E7, #E3E3E3));
+		border-bottom: 2px solid #CCC;
 		z-index: 10;
 
-
-		.__read_setting_common {
-			display: block;
-			position: absolute;
+		.__read_setting {
+			position: relative;
+			display: inline-block;
+			height: 60px;
+			width: 200px;
+			margin: 0 40px 10px 0;
 			@include box-sizing(border-box);
 			font-family: 'droid', serif;
-			font-size: 14px;
-		}
-
-		.__read_setting {
-			top: 0;
-			left: 0;
-			width: 200px;
-			height: 80px;
-			&.__read_wpm {
-				@extend .__read_setting_common;
-				top: 10px;
-				left: 10px;
-			}
-			&.__read_slowstart {
-				@extend .__read_setting_common;
-				top: 90px;
-				left: 10px;
-			}
-			&.__read_sentencedelay {
-				@extend .__read_setting_common;
-				top: 170px;
-				left: 10px;
-			}
 			label {
-				@extend .__read_setting_common;
-				left: 10px;
+				&.__read_label {
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					font-size: 13px;
+				}
 			}
+
 			input {
-				@extend .__read_setting_common;
-				top: 20px;
-				left: 10px;
-				text-align: center;
-				width: 100px;
-				height: 40px;
-				font-size: 24px;
-				margin: 0;
+				&.__read_input {
+					position: absolute;
+					top: 30px;
+					left: 8px;
+					text-align: center;
+					&[type="text"] { width: 60px; }
+					&[type="checkbox"] { width: 30px; }
+					height: 30px;
+					font-size: 16px;
+					margin: 0;
+					padding: 0;
+					@include border-radius(8px);
+					@include box-shadow(inset 0 0 8px rgba(0,0,0,0.3));
+					@include user-select(all);
+					border: none;
+					&:focus {
+						outline: none;
+						border: 1px solid $color;
+						@include border-radius(8px);
+					}
+				}
 			}
+
 			.__read_slider {
-				@extend .__read_setting_common;
-				top: 32px;
-				left: 125px;
-				width: 350px;
-				height: 18px;
+				position: absolute;
+				top: 39px;
+				left: 75px;
+				width: 150px;
+				height: 10px;
 			}
 		}
 	}

@@ -16,22 +16,43 @@
 			</div>\
 			<div class="__read_settings">\
 				<div class="__read_setting __read_wpm">\
-					<label>Words Per Minute</label>\
-					<input class="__read_speed" type="text"/>\
+					<label class="__read_label">Words Per Minute</label>\
+					<input class="__read_input __read_speed" type="text"/>\
 					<div class="__read_slider __read_speed_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_slowstart">\
-					<label>Slow Start Speed</label>\
-					<input class="__read_slow_start" type="text"/>\
+					<label class="__read_label">Slow Start Speed</label>\
+					<input class="__read_input __read_slow_start" type="text"/>\
 					<div class="__read_slider __read_slow_start_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_sentencedelay">\
-					<label>Sentence Delay</label>\
-					<input class="__read_sentence_delay" type="text"/>\
+					<label class="__read_label">Sentence Delay</label>\
+					<input class="__read_input __read_sentence_delay" type="text"/>\
 					<div class="__read_slider __read_sentence_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_puncdelay">\
+					<label class="__read_label">Other Punctuation Delay</label>\
+					<input class="__read_input __read_punc_delay" type="text"/>\
+					<div class="__read_slider __read_punc_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_shortworddelay">\
+					<label class="__read_label">Short Word Delay</label>\
+					<input class="__read_input __read_short_word_delay" type="text"/>\
+					<div class="__read_slider __read_short_word_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_longworddelay">\
+					<label class="__read_label">Long Word Delay</label>\
+					<input class="__read_input __read_long_word_delay" type="text"/>\
+					<div class="__read_slider __read_long_word_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_usekeybindings">\
+					<label class="__read_label">Use Key Bindings</label>\
+					<input class="__read_input __read_use_key_bindings" type="checkbox"/>\
 				</div>\
 			</div>\
 		</div>';
+
+	var tagTypesToSkip = ['INPUT', 'TEXTAREA', 'SELECT' ];
 
 	$.fn.textWidth = function(){
 		var self = $(this),
@@ -46,17 +67,21 @@
 	};
 
 	var defaultOptions = {
+		wpmMin: 300,
+		wpmMax: 1200,
 		wpm: 300,
 		slowStartCount: 5,
 		sentenceDelay: 2.5,
 		otherPuncDelay: 1.5,
 		shortWordDelay: 1.3,
-		longWordDelay: 1.4
+		longWordDelay: 1.4,
+		jumpWordCount: 10,
+		useKeyBindings: false
 	};
 
 	var whiteSpace = /[\n\r\s]/;
 
-	function Read ( block, options ) { //element, wpm ) {
+	function Read ( block, options ) {
 
 		// Defaults
 		this._parentElement = null;
@@ -76,6 +101,17 @@
 
 		this._sentenceDelayElement = null;
 		this._sentenceDelaySliderElement = null;
+
+		this._puncDelayElement = null;
+		this._puncDelaySliderElement = null;
+
+		this._shortWordDelayElement = null;
+		this._shortWordDelaySliderElement = null;
+
+		this._longWordDelayElement = null;
+		this._longWordDelaySliderElement = null;
+
+		this._useKeyBindingsElement = null;
 
 		this._currentWord = null;
 		this._delay = 0;
@@ -152,12 +188,12 @@
 	};
 
 	p._initSettings = function () {
-
 		// WPM
 		this._speedSliderElement.noUiSlider({
-			range: [300,1200],
+			range: [this._options.wpmMin,this._options.wpmMax],
 			start: this._options.wpm,
 			step: 25,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -166,7 +202,8 @@
 			},
 			set: $.proxy( function() {
 				this.setWPM( this._speedElement.val() );
-			},this )
+				this._speedElement.blur();
+			}, this )
 		});
 
 		// Slow Start
@@ -174,6 +211,7 @@
 			range: [0,5],
 			start: this._options.slowStartCount,
 			step: 1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -182,6 +220,7 @@
 			},
 			set: $.proxy( function() {
 				this.setSlowStartCount( this._slowStartElement.val() );
+				this._slowStartElement.blur();
 			},this )
 		});
 
@@ -190,6 +229,7 @@
 			range: [0,5],
 			start: this._options.sentenceDelay,
 			step: 0.1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -198,8 +238,64 @@
 			},
 			set: $.proxy( function() {
 				this.setSentenceDelay( this._sentenceDelayElement.val() );
+				this._sentenceDelayElement.blur();
 			},this )
 		});
+
+		// Other Punctuation Delay
+		this._puncDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.otherPuncDelay,
+			step: 0.1,
+			connect: 'lower',
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._puncDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setOtherPuncDelay( this._puncDelayElement.val() );
+				this._puncDelayElement.blur();
+			},this )
+		});
+
+		// Short Word Delay
+		this._shortWordDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.shortWordDelay,
+			step: 0.1,
+			connect: 'lower',
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._shortWordDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setShortWordDelay( this._shortWordDelayElement.val() );
+				this._shortWordDelayElement.blur();
+			},this )
+		});
+
+		// Long word Delay
+		this._longWordDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.longWordDelay,
+			step: 0.1,
+			connect: 'lower',
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._longWordDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setLongWordDelay( this._longWordDelayElement.val() );
+				this._longWordDelayElement.blur();
+			},this )
+		});
+
 
 	};
 
@@ -223,10 +319,16 @@
 
 	p.destroy = function () {
 		p.pause();
+		this.removeKeyBindings();
 		this._speedElement.off ( "blur" );
 		this._speedElement.off ( "keydown" );
 		this._parentElement.find('.__read').remove();
 		this._parentElement.css( "padding-top", "-=50" );
+		this._configElement.off();
+		this._restartElement.off();
+		this._displayElement.off();
+		this._closeElement.off();
+		this._speedElement.off();
 	};
 
 	p.setText = function (val) {
@@ -243,7 +345,74 @@
 		this._display();
 	};
 
+	p._prev = function() {
+		this._block.prev();
+		this._display();
+	};
+
+	p.addKeyBindings = function () {
+		this._parentElement.on ( "keydown", $.proxy(this._handleKeys, this) );
+	};
+
+	p.removeKeyBindings = function () {
+		this._parentElement.off ( "keydown", $.proxy(this._handleKeys, this) );
+	};
+
+
+	p._handleKeys = function(e) {
+
+		// Don't handle keypresses inside certain dom elements
+		var tagType = e.target.tagName;
+		if (tagTypesToSkip.indexOf(tagType) != -1) return;
+
+		switch ( e.keyCode ) {
+			case 32: // space  bar
+				this.playPauseToggle();
+				break;
+			case 37: // left arrow
+				this._block.prev(this._options.jumpWordCount);
+				break;
+			case 38: // up arrow
+				var speedUp = this._wpm + 25;
+				if ( this._wpm < this._options.wpmMax ) {
+					this._speedSliderElement.val(speedUp);
+					this._speedElement.blur();
+				}
+				break;
+			case 39: // right arrow
+				this._block.next(this._options.jumpWordCount);
+				break;
+			case 40: // down arrow
+				var speedDown = this._wpm - 25;
+				if ( this._wpm > this._options.wpmMin ) {
+					this._speedSliderElement.val(speedDown);
+					this._speedElement.blur();
+				}
+				break;
+			case 82: // R key
+				this.restart();
+				break;
+			case 83: // S key
+				this.toggleSettings();
+				break;
+			case 88: // X key
+				this.destroy();
+				break;
+			case 107:
+			case 187: // + keys
+				// TODO: increase font size?
+				break;
+			case 109:
+			case 189: // - keys
+				// TODO: decrease font size?
+				break;
+			default:
+				break;
+		}
+	};
+
 	p.setElement = function (val) {
+
 		if (!val) {
 			val = 'body';
 		}
@@ -290,10 +459,30 @@
 		this._sentenceDelayElement = this._options.element.find('.__read_sentence_delay');
 		this._sentenceDelaySliderElement = this._options.element.find('.__read_sentence_delay_slider');
 
+		this._puncDelayElement = this._options.element.find('.__read_punc_delay');
+		this._puncDelaySliderElement = this._options.element.find('.__read_punc_delay_slider');
+
+		this._shortWordDelayElement = this._options.element.find('.__read_short_word_delay');
+		this._shortWordDelaySliderElement = this._options.element.find('.__read_short_word_delay_slider');
+
+		this._longWordDelayElement = this._options.element.find('.__read_long_word_delay');
+		this._longWordDelaySliderElement = this._options.element.find('.__read_long_word_delay_slider');
+
 		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 		this._speedSliderElement = this._options.element.find('.__read_speed_slider');
+
+		this._useKeyBindingsElement = this._options.element.find('.__read_use_key_bindings');
+		this._useKeyBindingsElement.on ( "change",
+			$.proxy( function() {
+				this.setUseKeyBindings( this._useKeyBindingsElement.is(':checked') );
+			}, this )
+		);
+
+		if (this._options.useKeyBindings) {
+			this.addKeyBindings();
+		}
 
 		this._initSettings();
 	};
@@ -384,6 +573,18 @@
 		val = Math.max(0,val);
 		val = Math.min(10,val);
 		this._options.slowStartCount = val;
+	};
+
+	p.setUseKeyBindings = function ( val ) {
+		var newVal = ( val === true) ? true : false;
+		if (newVal !== this._options.useKeyBindings) {
+			this._options.useKeyBindings = newVal;
+			if (newVal) {
+				this.addKeyBindings();
+			} else {
+				this.removeKeyBindings();
+			}
+		}
 	};
 
 	p.updateWPMFromUI = function () {
