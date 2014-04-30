@@ -2614,7 +2614,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   top: 30px;
   left: 8px;
   text-align: center;
-  width: 60px;
   height: 30px;
   font-size: 16px;
   margin: 0;
@@ -2632,7 +2631,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   user-select: all;
   border: none;
 }
-/* line 175, ../scss/_read.scss */
+/* line 166, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input[type="text"] {
+  width: 60px;
+}
+/* line 167, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input[type="checkbox"] {
+  width: 30px;
+}
+/* line 176, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input.__read_input:focus {
   outline: none;
   border: 1px solid #3498db;
@@ -2642,7 +2649,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 183, ../scss/_read.scss */
+/* line 184, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   position: absolute;
   top: 39px;

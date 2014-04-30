@@ -45,6 +45,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-04-04####
 
+ * __added a setter for useKeyBindings__ (`James Tomasino`)
  * __bind keys false by default__ (`James Tomasino`)
  * __bindKeys false by default__ (`James Tomasino`)
  * __speed change is via blur now__ (`James Tomasino`)
@@ -56,15 +57,15 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-13####
 
+ * __added TODO in key press handler for left and right arrows__ (`Eric Emmons`)
+ * __bound X key to destroy__ (`Eric Emmons`)
+ * __bound S key to toggle settings pane__ (`Eric Emmons`)
+ * __bound R key to restart__ (`Eric Emmons`)
+ * __bound up and down arrows to increase/decrease wpm__ (`Eric Emmons`)
+ * __bound spacebar to play pause__ (`Eric Emmons`)
  * bound + and - keys and added TODO stubs in key press handler (`Eric Emmons`)
  * decreased opacity of settings. replay, and close butons (`Eric Emmons`)
  * bound left and right arrows to jump fwd/back variable number of words (`Eric Emmons`)
- * added TODO in key press handler for left and right arrows (`Eric Emmons`)
- * bound X key to destroy (`Eric Emmons`)
- * bound S key to toggle settings pane (`Eric Emmons`)
- * bound R key to restart (`Eric Emmons`)
- * bound up and down arrows to increase/decrease wpm (`Eric Emmons`)
- * bound spacebar to play pause (`Eric Emmons`)
 
 ####2014-03-12####
 
@@ -86,9 +87,9 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-10####
 
+ * using all google fonts and properly aligning (`James Tomasino`)
+ * changing fonts to css imports (`James Tomasino`)
  * __adding fonts for hardcoding__ (`James Tomasino`)
- * __using all google fonts and properly aligning__ (`James Tomasino`)
- * __changing fonts to css imports__ (`James Tomasino`)
  * moving text math out of the way to enable pause/play (`James Tomasino`)
  * added compass back in (`James Tomasino`)
  * split css files for easier porting (`James Tomasino`)
@@ -126,23 +127,24 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 ####2014-03-04####
 
- * updating gitignore to avoid all these damn collisions (`James Tomasino`)
- * updated css and js (`James Tomasino`)
- * moved speed change box to left for better display on small screens (`James Tomasino`)
- * matching styles to dom change (`James Tomasino`)
- * updated Read.js to use new dom (`James Tomasino`)
- * updated Read.js to use new dom (`James Tomasino`)
+ * __updating gitignore to avoid all these damn collisions__ (`James Tomasino`)
+ * __updated css and js__ (`James Tomasino`)
+ * __moved speed change box to left for better display on small screens__ (`James Tomasino`)
+ * __matching styles to dom change__ (`James Tomasino`)
+ * __updated Read.js to use new dom__ (`James Tomasino`)
+ * __updated Read.js to use new dom__ (`James Tomasino`)
 
 ####2014-02-28####
 
+ * __better positioning, one instance, color fix__ (`James Tomasino`)
+ * __better positioning, one instance, color fix__ (`James Tomasino`)
  * __adding progress indicator back in__ (`James Tomasino`)
  * __splitting up styles__ (`James Tomasino`)
  * __merged classes into 1 file and named better__ (`James Tomasino`)
- * better positioning, one instance, color fix (`James Tomasino`)
- * better positioning, one instance, color fix (`James Tomasino`)
 
 ####2014-02-27####
 
+ * __hyphenating long words__ (`James Tomasino`)
  * __better regex for word parsing__ (`James Tomasino`)
  * __better regex for word seperation__ (`James Tomasino`)
  * __adding favicon__ (`James Tomasino`)
@@ -165,10 +167,10 @@ The tool also gives an additional pause between paragraphs to help contextualize
  * progress bar added (`James Tomasino`)
  * closing textarea (`James Tomasino`)
  * Changing demo text to give a brief how-to (`James Tomasino`)
- * hyphenating long words (`James Tomasino`)
 
 ####2014-02-26####
 
+ * __added basic javascript for parsing word objects__ (`James Tomasino`)
  * __Initial commit__ (`James Tomasino`)
  * warm-up speed on play (`James Tomasino`)
  * adding width to prevent word-wrap (`James Tomasino`)
@@ -185,4 +187,3 @@ The tool also gives an additional pause between paragraphs to help contextualize
  * adding gitignore (`James Tomasino`)
  * added grunt boilerplate (`James Tomasino`)
  * handling fancyquotes, length, and index (`James Tomasino`)
- * added basic javascript for parsing word objects (`James Tomasino`)

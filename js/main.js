@@ -243,6 +243,10 @@
 					<input class="__read_input __read_long_word_delay" type="text"/>\
 					<div class="__read_slider __read_long_word_delay_slider"></div>\
 				</div>\
+				<div class="__read_setting __read_usekeybindings">\
+					<label class="__read_label">Use Key Bindings</label>\
+					<input class="__read_input __read_use_key_bindings" type="checkbox"/>\
+				</div>\
 			</div>\
 		</div>';
 
@@ -304,6 +308,8 @@
 
 		this._longWordDelayElement = null;
 		this._longWordDelaySliderElement = null;
+
+		this._useKeyBindingsElement = null;
 
 		this._currentWord = null;
 		this._delay = 0;
@@ -664,6 +670,13 @@
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 		this._speedSliderElement = this._options.element.find('.__read_speed_slider');
+
+		this._useKeyBindingsElement = this._options.element.find('.__read_use_key_bindings');
+		this._useKeyBindingsElement.on ( "change",
+			$.proxy( function() {
+				this.setUseKeyBindings( this._useKeyBindingsElement.is(':checked') );
+			}, this )
+		);
 
 		if (this._options.useKeyBindings) {
 			this.addKeyBindings();
